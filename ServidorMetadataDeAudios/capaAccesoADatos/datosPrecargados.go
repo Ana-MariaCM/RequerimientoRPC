@@ -59,24 +59,14 @@ func cargarAudios() []modelos.Audio {
 func cargarMusica() []modelos.Audio {
 	return []modelos.Audio{
 		modelos.Musica{
-			AudioBase:        modelos.AudioBase{Id: 1, IdTipo: IdTipoMusica, Titulo: "Bohemian Rhapsody", NombreArchivo: "musica_bohemian_rhapsody.mp3"},
-			ArtistaPrincipal: "Queen", Album: "A Night at the Opera", GeneroMusical: "Rock",
-			SelloDiscografico: "EMI", AnioLanzamiento: 1975, Duracion: "5:55",
+			AudioBase:        modelos.AudioBase{Id: 1, IdTipo: IdTipoMusica, Titulo: "Sonido Bestial", NombreArchivo: "Sonido_Bestial.mp3"},
+			ArtistaPrincipal: "Ricardo Ray & Bobby Cruz", Album: "Sonido Bestial Plus", GeneroMusical: "Salsa",
+			SelloDiscografico: "Ricardo Ray & Bobby Cruz", AnioLanzamiento: 2000, Duracion: "6:48",
 		},
 		modelos.Musica{
-			AudioBase:        modelos.AudioBase{Id: 2, IdTipo: IdTipoMusica, Titulo: "Take Five", NombreArchivo: "musica_take_five.mp3"},
-			ArtistaPrincipal: "The Dave Brubeck Quartet", Album: "Time Out", GeneroMusical: "Jazz",
-			SelloDiscografico: "Columbia Records", AnioLanzamiento: 1959, Duracion: "5:24",
-		},
-		modelos.Musica{
-			AudioBase:        modelos.AudioBase{Id: 3, IdTipo: IdTipoMusica, Titulo: "Billie Jean", NombreArchivo: "musica_billie_jean.mp3"},
-			ArtistaPrincipal: "Michael Jackson", Album: "Thriller", GeneroMusical: "Pop",
-			SelloDiscografico: "Epic Records", AnioLanzamiento: 1982, Duracion: "4:54",
-		},
-		modelos.Musica{
-			AudioBase:        modelos.AudioBase{Id: 4, IdTipo: IdTipoMusica, Titulo: "Hotel California", NombreArchivo: "musica_hotel_california.mp3"},
-			ArtistaPrincipal: "Eagles", Album: "Hotel California", GeneroMusical: "Rock",
-			SelloDiscografico: "Asylum Records", AnioLanzamiento: 1976, Duracion: "6:30",
+			AudioBase:        modelos.AudioBase{Id: 2, IdTipo: IdTipoMusica, Titulo: "Mis Ojos Lloran Por Ti", NombreArchivo: "Mi_Ojos_Lloran_Por_Ti.mp3"},
+			ArtistaPrincipal: "Big Boy", Album: "Mis Ojos Lloran Por Ti", GeneroMusical: "Reggaeton",
+			SelloDiscografico: "Big Boy", AnioLanzamiento: 2003, Duracion: "4:55",
 		},
 	}
 }
@@ -88,28 +78,16 @@ func cargarMusica() []modelos.Audio {
 func cargarPodcasts() []modelos.Audio {
 	return []modelos.Audio{
 		modelos.Podcast{
-			AudioBase:     modelos.AudioBase{Id: 5, IdTipo: IdTipoPodcasts, Titulo: "¿Qué es una llamada a procedimiento remoto?", NombreArchivo: "podcast_sd_t1_e1.mp3"},
-			NombrePodcast: "Sistemas Distribuidos al Día", Anfitrion: "Laura Muñoz", Temporada: 1, Episodio: 1,
-			NotasDelShow:           "Introducción al modelo RPC: stubs, serialización y transparencia. Referencia: https://grpc.io/docs/what-is-grpc/introduction/",
-			ClasificacionContenido: "Para toda la familia", Duracion: "18:30",
+			AudioBase:     modelos.AudioBase{Id: 3, IdTipo: IdTipoPodcasts, Titulo: "Podcast Educativo, Tabaquismo", NombreArchivo: "Podcast_Educativo_Tabaquismo.mp3"},
+			NombrePodcast: "Podcast educativo sobre el tabaquismo", Anfitrion: "José José", Temporada: 1, Episodio: 1,
+			NotasDelShow:           "Por qué el consumo de tabaco es perjudicicial para la salud de todos.",
+			ClasificacionContenido: "Para toda la familia", Duracion: "01:15",
 		},
 		modelos.Podcast{
-			AudioBase:     modelos.AudioBase{Id: 6, IdTipo: IdTipoPodcasts, Titulo: "Streaming con gRPC en Go", NombreArchivo: "podcast_sd_t1_e2.mp3"},
-			NombrePodcast: "Sistemas Distribuidos al Día", Anfitrion: "Laura Muñoz", Temporada: 1, Episodio: 2,
-			NotasDelShow:           "Server streaming, fragmentación de archivos y control de flujo. Referencia: https://grpc.io/docs/languages/go/basics/",
-			ClasificacionContenido: "Para toda la familia", Duracion: "22:10",
-		},
-		modelos.Podcast{
-			AudioBase:     modelos.AudioBase{Id: 7, IdTipo: IdTipoPodcasts, Titulo: "El faro abandonado", NombreArchivo: "podcast_historias_t2_e5.mp3"},
-			NombrePodcast: "Historias de Medianoche", Anfitrion: "Carlos Rivera", Temporada: 2, Episodio: 5,
-			NotasDelShow:           "Relato de suspenso con escenas intensas y lenguaje fuerte.",
-			ClasificacionContenido: "Explícito", Duracion: "35:45",
-		},
-		modelos.Podcast{
-			AudioBase:     modelos.AudioBase{Id: 8, IdTipo: IdTipoPodcasts, Titulo: "¿Por qué el cielo es azul?", NombreArchivo: "podcast_ciencia_t3_e12.mp3"},
-			NombrePodcast: "Ciencia en Cápsulas", Anfitrion: "Mariana Gómez", Temporada: 3, Episodio: 12,
-			NotasDelShow:           "La dispersión de Rayleigh explicada de forma sencilla. Referencia: https://es.wikipedia.org/wiki/Dispersión_de_Rayleigh",
-			ClasificacionContenido: "Para toda la familia", Duracion: "12:05",
+			AudioBase:     modelos.AudioBase{Id: 4, IdTipo: IdTipoPodcasts, Titulo: "Trastornos del Aprendizaje", NombreArchivo: "Podcast_Trastornos_Del_Aprendizaje.mp3"},
+			NombrePodcast: "Trastornos del Aprendizaje", Anfitrion: "Laura Muñoz", Temporada: 1, Episodio: 2,
+			NotasDelShow:           "Identificar los diferentes trastornos del aprendizaje que nos pueden afectar a todos.",
+			ClasificacionContenido: "Para toda la familia", Duracion: "03:00",
 		},
 	}
 }
@@ -121,51 +99,31 @@ func cargarPodcasts() []modelos.Audio {
 func cargarAudiolibros() []modelos.Audio {
 	return []modelos.Audio{
 		modelos.Audiolibro{
-			AudioBase: modelos.AudioBase{Id: 9, IdTipo: IdTipoAudiolibros, Titulo: "Harry Potter y la Piedra Filosofal", NombreArchivo: "audiolibro_harry_potter.mp3"},
-			Autor:     "J. K. Rowling", Narrador: "Andrés Salazar", Editorial: "Salamandra", ISBN: "978-84-7888-445-2",
-			Capitulo: 1, TotalCapitulos: 17, Duracion: "8:48:00", Genero: "Fantasía",
+			AudioBase: modelos.AudioBase{Id: 5, IdTipo: IdTipoAudiolibros, Titulo: "El silencio de las sirenas", NombreArchivo: "Audiolibro_El_silencio_de_las_sirenas__Franz_Kafka.mp3"},
+			Autor:     "Franz Kafka", Narrador: "Andrés Salazar", Editorial: "Salamandra", ISBN: "978-84-7888-445-2",
+			Capitulo: 1, TotalCapitulos: 2, Duracion: "04:17", Genero: "Ficción",
 		},
 		modelos.Audiolibro{
-			AudioBase: modelos.AudioBase{Id: 10, IdTipo: IdTipoAudiolibros, Titulo: "Cien años de soledad", NombreArchivo: "audiolibro_cien_anios_de_soledad.mp3"},
-			Autor:     "Gabriel García Márquez", Narrador: "Gustavo Bonfigli", Editorial: "Penguin Random House Grupo Editorial", ISBN: "978-0-307-47472-8",
-			Capitulo: 1, TotalCapitulos: 20, Duracion: "4:42", Genero: "Ficción",
-		},
-		modelos.Audiolibro{
-			AudioBase: modelos.AudioBase{Id: 11, IdTipo: IdTipoAudiolibros, Titulo: "El Señor de los Anillos: La Comunidad del Anillo", NombreArchivo: "audiolibro_senor_de_los_anillos.mp3"},
-			Autor:     "J. R. R. Tolkien", Narrador: "Julián Restrepo", Editorial: "Minotauro", ISBN: "978-84-450-0006-9",
-			Capitulo: 1, TotalCapitulos: 22, Duracion: "19:07:00", Genero: "Fantasía épica",
-		},
-		modelos.Audiolibro{
-			AudioBase: modelos.AudioBase{Id: 12, IdTipo: IdTipoAudiolibros, Titulo: "Orgullo y Prejuicio", NombreArchivo: "audiolibro_orgullo_y_prejuicio.mp3"},
-			Autor:     "Jane Austen", Narrador: "Lucía Fernández", Editorial: "Penguin Clásicos", ISBN: "978-84-9105-092-6",
-			Capitulo: 1, TotalCapitulos: 61, Duracion: "11:35:00", Genero: "Novela romántica",
+			AudioBase: modelos.AudioBase{Id: 6, IdTipo: IdTipoAudiolibros, Titulo: "Beatriz, una palabra enorme", NombreArchivo: "Audiolibro_Beatriz_una_palabra_enorme__Mario_Benedetti.mp3"},
+			Autor:     "Mario Benedetti", Narrador: "Ana María Castro", Editorial: "Penguin Random House Grupo Editorial", ISBN: "978-0-307-47472-8",
+			Capitulo: 1, TotalCapitulos: 3, Duracion: "09:00", Genero: "Historia",
 		},
 	}
 }
 
-/**
+/**Historia
  * @brief Construye los audios de tipo Ruido Blanco.
  * @return Bucles de ruido precargados.
  */
 func cargarRuidoBlanco() []modelos.Audio {
 	return []modelos.Audio{
 		modelos.RuidoBlanco{
-			AudioBase:  modelos.AudioBase{Id: 13, IdTipo: IdTipoRuidoBlanco, Titulo: "Lluvia suave para dormir", NombreArchivo: "ruido_lluvia_suave.mp3"},
-			TipoSonido: "Ruido Rosa", FuenteAudio: "Lluvia", UsoSugerido: "Dormir",
-			ProveedorContenido: "Sonidos del Cauca", DuracionBucle: "00:30", FrecuenciaDominante: "Graves",
-		},
-		modelos.RuidoBlanco{
-			AudioBase:  modelos.AudioBase{Id: 14, IdTipo: IdTipoRuidoBlanco, Titulo: "Ventilador para concentrarse", NombreArchivo: "ruido_ventilador.mp3"},
+			AudioBase:  modelos.AudioBase{Id: 7, IdTipo: IdTipoRuidoBlanco, Titulo: "Ventilador para concentrarse", NombreArchivo: "ruido_ventilador.mp3"},
 			TipoSonido: "Ruido Blanco", FuenteAudio: "Ventilador", UsoSugerido: "Concentración",
 			ProveedorContenido: "Estudio Enfoque", DuracionBucle: "00:20", FrecuenciaDominante: "Agudos",
 		},
 		modelos.RuidoBlanco{
-			AudioBase:  modelos.AudioBase{Id: 15, IdTipo: IdTipoRuidoBlanco, Titulo: "Bosque profundo", NombreArchivo: "ruido_bosque_profundo.mp3"},
-			TipoSonido: "Ruido Marrón", FuenteAudio: "Bosque", UsoSugerido: "Meditación",
-			ProveedorContenido: "Naturaleza Viva", DuracionBucle: "00:45", FrecuenciaDominante: "Graves",
-		},
-		modelos.RuidoBlanco{
-			AudioBase:  modelos.AudioBase{Id: 16, IdTipo: IdTipoRuidoBlanco, Titulo: "Olas en la costa", NombreArchivo: "ruido_olas_costa.mp3"},
+			AudioBase:  modelos.AudioBase{Id: 8, IdTipo: IdTipoRuidoBlanco, Titulo: "Olas en la costa", NombreArchivo: "ruido_olas_costa.mp3"},
 			TipoSonido: "Ruido Rosa", FuenteAudio: "Mar", UsoSugerido: "Meditación",
 			ProveedorContenido: "Sonidos del Cauca", DuracionBucle: "00:40", FrecuenciaDominante: "Graves",
 		},
