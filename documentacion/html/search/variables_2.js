@@ -1,8 +1,0 @@
-var searchData=
-[
-  ['detenido_0',['detenido',['../structCliente_1_1utilidades_1_1Reproductor.html#a57b77eec2969d70937b12c31cfb4a3de',1,'Cliente::utilidades::Reproductor']]],
-  ['direccioncliente_1',['direccioncliente',['../structServidorDeStreaming_1_1dtos_1_1ReproduccionDTOOutput.html#af3086b7aebc76da65d31874c8967ebcd',1,'ServidorDeStreaming::dtos::ReproduccionDTOOutput::DireccionCliente'],['../structServidorDeEstadisticas_1_1dtos_1_1ReproduccionDTOInput.html#a7998878a7242c76e2eafb574614cd6de',1,'ServidorDeEstadisticas::dtos::ReproduccionDTOInput::DireccionCliente'],['../structServidorDeEstadisticas_1_1modelos_1_1Reproduccion.html#a852d31c802e28f07e13b44f476902a66',1,'ServidorDeEstadisticas::modelos::Reproduccion::DireccionCliente']]],
-  ['direccionstreamingpordefecto_2',['DireccionStreamingPorDefecto',['../namespaceCliente_1_1configuracion.html#a29549c19dab2b2abb2ee1e48cba6fbe0',1,'Cliente::configuracion']]],
-  ['duracion_3',['duracion',['../structServidorMetadataDeAudios_1_1modelos_1_1Audiolibro.html#a15705ac7381efdccc0d3fb1141fbc5e2',1,'ServidorMetadataDeAudios::modelos::Audiolibro::Duracion'],['../structServidorMetadataDeAudios_1_1modelos_1_1Musica.html#a996c7bda52fb8da54322bc9cffd3bc52',1,'ServidorMetadataDeAudios::modelos::Musica::Duracion'],['../structServidorMetadataDeAudios_1_1modelos_1_1Podcast.html#a15adf0f495159b5b8d85a679c760fa0e',1,'ServidorMetadataDeAudios::modelos::Podcast::Duracion']]],
-  ['duracionbucle_4',['DuracionBucle',['../structServidorMetadataDeAudios_1_1modelos_1_1RuidoBlanco.html#ac9c6ceadf75dc7441d0f6c364615a6bf',1,'ServidorMetadataDeAudios::modelos::RuidoBlanco']]]
-];
