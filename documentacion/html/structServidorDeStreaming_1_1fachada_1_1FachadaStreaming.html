@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spotify distribuido - RPC: Referencia de la estructura ServidorDeStreaming::fachada::FachadaStreaming</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Spotify distribuido - RPC<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Streaming de audio con gRPC, REST y cola de mensajes en Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structServidorDeStreaming_1_1fachada_1_1FachadaStreaming.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pub-attribs">Atributos públicos</a> &#124;
+<a href="structServidorDeStreaming_1_1fachada_1_1FachadaStreaming-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la estructura ServidorDeStreaming::fachada::FachadaStreaming</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fachada del servidor de streaming.  
+ <a href="structServidorDeStreaming_1_1fachada_1_1FachadaStreaming.html#details">Más...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a437ace2a0e51973f307f73afb246bff5" id="r_a437ace2a0e51973f307f73afb246bff5"><td class="memItemLeft" align="right" valign="top">error&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorDeStreaming_1_1fachada_1_1FachadaStreaming.html#a437ace2a0e51973f307f73afb246bff5">TransmitirAudio</a> (pb::AudioRequest *peticion, string direccionCliente, pb::AudioService_AudioStreamServer stream)</td></tr>
+<tr class="memdesc:a437ace2a0e51973f307f73afb246bff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmite un archivo de audio al cliente fragmento a fragmento.  <br /></td></tr>
+<tr class="separator:a437ace2a0e51973f307f73afb246bff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd17998166607a9de3c22d7149543a1c" id="r_abd17998166607a9de3c22d7149543a1c"><td class="memItemLeft" align="right" valign="top">error&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorDeStreaming_1_1fachada_1_1FachadaStreaming.html#abd17998166607a9de3c22d7149543a1c">enviarFragmentos</a> (io::Reader lector, pb::AudioService_AudioStreamServer stream)</td></tr>
+<tr class="memdesc:abd17998166607a9de3c22d7149543a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee el archivo en fragmentos de 32 KB y los envía por el stream gRPC.  <br /></td></tr>
+<tr class="separator:abd17998166607a9de3c22d7149543a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afab4eb586167713880589a4f8588ba0b" id="r_afab4eb586167713880589a4f8588ba0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorDeStreaming_1_1fachada_1_1FachadaStreaming.html#afab4eb586167713880589a4f8588ba0b">publicarReproduccion</a> (pb::AudioRequest *peticion, string direccionCliente)</td></tr>
+<tr class="memdesc:afab4eb586167713880589a4f8588ba0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publica en la cola la información de una nueva reproducción.  <br /></td></tr>
+<tr class="separator:afab4eb586167713880589a4f8588ba0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atributos públicos</h2></td></tr>
+<tr class="memitem:a6b66c4bcb958f705634208dd179f17cc" id="r_a6b66c4bcb958f705634208dd179f17cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structServidorDeStreaming_1_1capaaccesodatos_1_1RepositorioAudios.html">capaaccesodatos::RepositorioAudios</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorDeStreaming_1_1fachada_1_1FachadaStreaming.html#a6b66c4bcb958f705634208dd179f17cc">repositorio</a></td></tr>
+<tr class="memdesc:a6b66c4bcb958f705634208dd179f17cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceso a los archivos mp3.  <br /></td></tr>
+<tr class="separator:a6b66c4bcb958f705634208dd179f17cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf33a628692de341db58bd3e22bbba69" id="r_abf33a628692de341db58bd3e22bbba69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structServidorDeStreaming_1_1componenteconexioncola_1_1RabbitPublicador.html">componenteconexioncola::RabbitPublicador</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorDeStreaming_1_1fachada_1_1FachadaStreaming.html#abf33a628692de341db58bd3e22bbba69">conexionCola</a></td></tr>
+<tr class="memdesc:abf33a628692de341db58bd3e22bbba69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publicador de reproducciones en la cola.  <br /></td></tr>
+<tr class="separator:abf33a628692de341db58bd3e22bbba69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Fachada del servidor de streaming. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ServidorDeStreaming_2capaFachadaServices_2fachada_2fachadaStreaming_8go_source.html#l00026">26</a> del archivo <a class="el" href="ServidorDeStreaming_2capaFachadaServices_2fachada_2fachadaStreaming_8go_source.html">fachadaStreaming.go</a>.</p>
+</div><h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a437ace2a0e51973f307f73afb246bff5" name="a437ace2a0e51973f307f73afb246bff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a437ace2a0e51973f307f73afb246bff5">&#9670;&#160;</a></span>TransmitirAudio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">error TransmitirAudio </td>
+          <td>(</td>
+          <td class="paramtype">pb::AudioRequest *&#160;</td>
+          <td class="paramname"><em>peticion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>direccionCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">pb::AudioService_AudioStreamServer&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transmite un archivo de audio al cliente fragmento a fragmento. </p>
+<p>Antes de iniciar el envío publica, de forma asíncrona, la información de la reproducción en la cola de mensajes. Si el cliente abandona la reproducción el envío se detiene. </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">peticion</td><td>Petición gRPC con el archivo y los datos del audio. </td></tr>
+    <tr><td class="paramname">direccionCliente</td><td>Dirección IP:puerto del cliente. </td></tr>
+    <tr><td class="paramname">stream</td><td>Flujo gRPC por el que se envían los fragmentos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>nil si el audio se envió completo, o un error gRPC (NotFound, Canceled, Internal). </dd></dl>
+
+</div>
+</div>
+<a id="abd17998166607a9de3c22d7149543a1c" name="abd17998166607a9de3c22d7149543a1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd17998166607a9de3c22d7149543a1c">&#9670;&#160;</a></span>enviarFragmentos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">error enviarFragmentos </td>
+          <td>(</td>
+          <td class="paramtype">io::Reader&#160;</td>
+          <td class="paramname"><em>lector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">pb::AudioService_AudioStreamServer&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lee el archivo en fragmentos de 32 KB y los envía por el stream gRPC. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lector</td><td>Archivo de audio abierto. </td></tr>
+    <tr><td class="paramname">stream</td><td>Flujo gRPC por el que se envían los fragmentos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>nil si se envió completo, o un error gRPC. </dd></dl>
+
+</div>
+</div>
+<a id="afab4eb586167713880589a4f8588ba0b" name="afab4eb586167713880589a4f8588ba0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afab4eb586167713880589a4f8588ba0b">&#9670;&#160;</a></span>publicarReproduccion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void publicarReproduccion </td>
+          <td>(</td>
+          <td class="paramtype">pb::AudioRequest *&#160;</td>
+          <td class="paramname"><em>peticion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>direccionCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publica en la cola la información de una nueva reproducción. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">peticion</td><td>Petición gRPC con los datos del audio. </td></tr>
+    <tr><td class="paramname">direccionCliente</td><td>Dirección IP:puerto del cliente. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de datos miembro</h2>
+<a id="a6b66c4bcb958f705634208dd179f17cc" name="a6b66c4bcb958f705634208dd179f17cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b66c4bcb958f705634208dd179f17cc">&#9670;&#160;</a></span>repositorio</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structServidorDeStreaming_1_1capaaccesodatos_1_1RepositorioAudios.html">capaaccesodatos::RepositorioAudios</a>* ServidorDeStreaming::fachada::FachadaStreaming::repositorio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acceso a los archivos mp3. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ServidorDeStreaming_2capaFachadaServices_2fachada_2fachadaStreaming_8go_source.html#l00027">27</a> del archivo <a class="el" href="ServidorDeStreaming_2capaFachadaServices_2fachada_2fachadaStreaming_8go_source.html">fachadaStreaming.go</a>.</p>
+
+</div>
+</div>
+<a id="abf33a628692de341db58bd3e22bbba69" name="abf33a628692de341db58bd3e22bbba69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf33a628692de341db58bd3e22bbba69">&#9670;&#160;</a></span>conexionCola</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structServidorDeStreaming_1_1componenteconexioncola_1_1RabbitPublicador.html">componenteconexioncola::RabbitPublicador</a>* ServidorDeStreaming::fachada::FachadaStreaming::conexionCola</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publicador de reproducciones en la cola. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ServidorDeStreaming_2capaFachadaServices_2fachada_2fachadaStreaming_8go_source.html#l00028">28</a> del archivo <a class="el" href="ServidorDeStreaming_2capaFachadaServices_2fachada_2fachadaStreaming_8go_source.html">fachadaStreaming.go</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación de esta estructura está generada del siguiente archivo:<ul>
+<li>ServidorDeStreaming/capaFachadaServices/fachada/<a class="el" href="ServidorDeStreaming_2capaFachadaServices_2fachada_2fachadaStreaming_8go_source.html">fachadaStreaming.go</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceServidorDeStreaming.html">ServidorDeStreaming</a></li><li class="navelem"><a class="el" href="namespaceServidorDeStreaming_1_1fachada.html">fachada</a></li><li class="navelem"><a class="el" href="structServidorDeStreaming_1_1fachada_1_1FachadaStreaming.html">FachadaStreaming</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

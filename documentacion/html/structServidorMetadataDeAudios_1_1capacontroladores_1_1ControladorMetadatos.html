@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spotify distribuido - RPC: Referencia de la estructura ServidorMetadataDeAudios::capacontroladores::ControladorMetadatos</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Spotify distribuido - RPC<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Streaming de audio con gRPC, REST y cola de mensajes en Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structServidorMetadataDeAudios_1_1capacontroladores_1_1ControladorMetadatos.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pub-attribs">Atributos públicos</a> &#124;
+<a href="structServidorMetadataDeAudios_1_1capacontroladores_1_1ControladorMetadatos-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la estructura ServidorMetadataDeAudios::capacontroladores::ControladorMetadatos</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Controlador de los servicios REST de metadatos.  
+ <a href="structServidorMetadataDeAudios_1_1capacontroladores_1_1ControladorMetadatos.html#details">Más...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a93cad5b622deb36d26948e28b04781fd" id="r_a93cad5b622deb36d26948e28b04781fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1capacontroladores_1_1ControladorMetadatos.html#a93cad5b622deb36d26948e28b04781fd">ListarTiposAudio</a> (http::ResponseWriter w, http::Request *r)</td></tr>
+<tr class="memdesc:a93cad5b622deb36d26948e28b04781fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Servicio REST GET /tipos: lista los tipos de audio registrados.  <br /></td></tr>
+<tr class="separator:a93cad5b622deb36d26948e28b04781fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1e182b7bd0de0e3e9fb1832fb81876f" id="r_ab1e182b7bd0de0e3e9fb1832fb81876f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1capacontroladores_1_1ControladorMetadatos.html#ab1e182b7bd0de0e3e9fb1832fb81876f">ListarAudiosPorTipo</a> (http::ResponseWriter w, http::Request *r)</td></tr>
+<tr class="memdesc:ab1e182b7bd0de0e3e9fb1832fb81876f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Servicio REST GET /tipos/{idTipo}/audios: lista los audios de un tipo.  <br /></td></tr>
+<tr class="separator:ab1e182b7bd0de0e3e9fb1832fb81876f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b7f882957cd75bfd4be1648b83eb51" id="r_a39b7f882957cd75bfd4be1648b83eb51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1capacontroladores_1_1ControladorMetadatos.html#a39b7f882957cd75bfd4be1648b83eb51">ConsultarDetalleAudio</a> (http::ResponseWriter w, http::Request *r)</td></tr>
+<tr class="memdesc:a39b7f882957cd75bfd4be1648b83eb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Servicio REST GET /audios/{idAudio}: consulta los metadatos de un audio.  <br /></td></tr>
+<tr class="separator:a39b7f882957cd75bfd4be1648b83eb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atributos públicos</h2></td></tr>
+<tr class="memitem:afa5aae9f8dc51659b0bd0351544377a0" id="r_afa5aae9f8dc51659b0bd0351544377a0"><td class="memItemLeft" align="right" valign="top">capafachada::FachadaMetadatos *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1capacontroladores_1_1ControladorMetadatos.html#afa5aae9f8dc51659b0bd0351544377a0">fachada</a></td></tr>
+<tr class="memdesc:afa5aae9f8dc51659b0bd0351544377a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fachada que resuelve la lógica de los servicios.  <br /></td></tr>
+<tr class="separator:afa5aae9f8dc51659b0bd0351544377a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Controlador de los servicios REST de metadatos. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="controladorMetadatos_8go_source.html#l00024">24</a> del archivo <a class="el" href="controladorMetadatos_8go_source.html">controladorMetadatos.go</a>.</p>
+</div><h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a93cad5b622deb36d26948e28b04781fd" name="a93cad5b622deb36d26948e28b04781fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93cad5b622deb36d26948e28b04781fd">&#9670;&#160;</a></span>ListarTiposAudio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ListarTiposAudio </td>
+          <td>(</td>
+          <td class="paramtype">http::ResponseWriter&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">http::Request *&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Servicio REST GET /tipos: lista los tipos de audio registrados. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>Escritor de la respuesta HTTP. </td></tr>
+    <tr><td class="paramname">r</td><td>Petición HTTP recibida. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab1e182b7bd0de0e3e9fb1832fb81876f" name="ab1e182b7bd0de0e3e9fb1832fb81876f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1e182b7bd0de0e3e9fb1832fb81876f">&#9670;&#160;</a></span>ListarAudiosPorTipo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ListarAudiosPorTipo </td>
+          <td>(</td>
+          <td class="paramtype">http::ResponseWriter&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">http::Request *&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Servicio REST GET /tipos/{idTipo}/audios: lista los audios de un tipo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>Escritor de la respuesta HTTP. </td></tr>
+    <tr><td class="paramname">r</td><td>Petición HTTP recibida (contiene el parámetro de ruta idTipo). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a39b7f882957cd75bfd4be1648b83eb51" name="a39b7f882957cd75bfd4be1648b83eb51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39b7f882957cd75bfd4be1648b83eb51">&#9670;&#160;</a></span>ConsultarDetalleAudio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ConsultarDetalleAudio </td>
+          <td>(</td>
+          <td class="paramtype">http::ResponseWriter&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">http::Request *&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Servicio REST GET /audios/{idAudio}: consulta los metadatos de un audio. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>Escritor de la respuesta HTTP. </td></tr>
+    <tr><td class="paramname">r</td><td>Petición HTTP recibida (contiene el parámetro de ruta idAudio). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de datos miembro</h2>
+<a id="afa5aae9f8dc51659b0bd0351544377a0" name="afa5aae9f8dc51659b0bd0351544377a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa5aae9f8dc51659b0bd0351544377a0">&#9670;&#160;</a></span>fachada</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">capafachada::FachadaMetadatos* ServidorMetadataDeAudios::capacontroladores::ControladorMetadatos::fachada</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fachada que resuelve la lógica de los servicios. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="controladorMetadatos_8go_source.html#l00025">25</a> del archivo <a class="el" href="controladorMetadatos_8go_source.html">controladorMetadatos.go</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación de esta estructura está generada del siguiente archivo:<ul>
+<li>ServidorMetadataDeAudios/capaControladores/<a class="el" href="controladorMetadatos_8go_source.html">controladorMetadatos.go</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceServidorMetadataDeAudios.html">ServidorMetadataDeAudios</a></li><li class="navelem"><a class="el" href="namespaceServidorMetadataDeAudios_1_1capacontroladores.html">capacontroladores</a></li><li class="navelem"><a class="el" href="structServidorMetadataDeAudios_1_1capacontroladores_1_1ControladorMetadatos.html">ControladorMetadatos</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

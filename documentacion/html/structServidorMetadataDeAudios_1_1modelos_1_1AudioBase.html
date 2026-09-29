@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spotify distribuido - RPC: Referencia de la estructura ServidorMetadataDeAudios::modelos::AudioBase</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Spotify distribuido - RPC<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Streaming de audio con gRPC, REST y cola de mensajes en Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pub-attribs">Atributos públicos</a> &#124;
+<a href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la estructura ServidorMetadataDeAudios::modelos::AudioBase</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Datos comunes a cualquier audio.  
+ <a href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html#details">Más...</a></p>
+<div class="dynheader">
+Diagrama de herencia de ServidorMetadataDeAudios::modelos::AudioBase</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.png" usemap="#ServidorMetadataDeAudios::modelos::AudioBase_map" alt=""/>
+  <map id="ServidorMetadataDeAudios::modelos::AudioBase_map" name="ServidorMetadataDeAudios::modelos::AudioBase_map">
+<area href="structServidorMetadataDeAudios_1_1modelos_1_1Audiolibro.html" title="Audio de tipo Audiolibro." alt="ServidorMetadataDeAudios::modelos::Audiolibro" shape="rect" coords="0,56,297,80"/>
+<area href="structServidorMetadataDeAudios_1_1modelos_1_1Musica.html" title="Audio de tipo Música." alt="ServidorMetadataDeAudios::modelos::Musica" shape="rect" coords="307,56,604,80"/>
+<area href="structServidorMetadataDeAudios_1_1modelos_1_1Podcast.html" title="Audio de tipo Podcast." alt="ServidorMetadataDeAudios::modelos::Podcast" shape="rect" coords="614,56,911,80"/>
+<area href="structServidorMetadataDeAudios_1_1modelos_1_1RuidoBlanco.html" title="Audio de tipo Ruido Blanco." alt="ServidorMetadataDeAudios::modelos::RuidoBlanco" shape="rect" coords="921,56,1218,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a0f8218d47959adfcf72701ac9dab8d1f" id="r_a0f8218d47959adfcf72701ac9dab8d1f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html#a0f8218d47959adfcf72701ac9dab8d1f">ObtenerId</a> ()</td></tr>
+<tr class="memdesc:a0f8218d47959adfcf72701ac9dab8d1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el identificador del audio.  <br /></td></tr>
+<tr class="separator:a0f8218d47959adfcf72701ac9dab8d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a179776dc23fab5d0391847bc192bdc6e" id="r_a179776dc23fab5d0391847bc192bdc6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html#a179776dc23fab5d0391847bc192bdc6e">ObtenerIdTipo</a> ()</td></tr>
+<tr class="memdesc:a179776dc23fab5d0391847bc192bdc6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el identificador del tipo de audio.  <br /></td></tr>
+<tr class="separator:a179776dc23fab5d0391847bc192bdc6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd2e189afed52b52b5ecc4ef3baf9fa3" id="r_abd2e189afed52b52b5ecc4ef3baf9fa3"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html#abd2e189afed52b52b5ecc4ef3baf9fa3">ObtenerTitulo</a> ()</td></tr>
+<tr class="memdesc:abd2e189afed52b52b5ecc4ef3baf9fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el título del audio.  <br /></td></tr>
+<tr class="separator:abd2e189afed52b52b5ecc4ef3baf9fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec315b69ce1978b09008f099b12fe46" id="r_a5ec315b69ce1978b09008f099b12fe46"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html#a5ec315b69ce1978b09008f099b12fe46">ObtenerNombreArchivo</a> ()</td></tr>
+<tr class="memdesc:a5ec315b69ce1978b09008f099b12fe46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el nombre del archivo mp3 asociado al audio.  <br /></td></tr>
+<tr class="separator:a5ec315b69ce1978b09008f099b12fe46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atributos públicos</h2></td></tr>
+<tr class="memitem:a9d3d1975d636c1d5763f2e252463472c" id="r_a9d3d1975d636c1d5763f2e252463472c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html#a9d3d1975d636c1d5763f2e252463472c">Id</a></td></tr>
+<tr class="memdesc:a9d3d1975d636c1d5763f2e252463472c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identificador único del audio.  <br /></td></tr>
+<tr class="separator:a9d3d1975d636c1d5763f2e252463472c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74a8d9d7098d1f7960ae5f95f5938ca4" id="r_a74a8d9d7098d1f7960ae5f95f5938ca4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html#a74a8d9d7098d1f7960ae5f95f5938ca4">IdTipo</a></td></tr>
+<tr class="memdesc:a74a8d9d7098d1f7960ae5f95f5938ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identificador del tipo de audio al que corresponde el audio.  <br /></td></tr>
+<tr class="separator:a74a8d9d7098d1f7960ae5f95f5938ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aced70a8f33e71cd74b2e1a5ab043ecd1" id="r_aced70a8f33e71cd74b2e1a5ab043ecd1"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html#aced70a8f33e71cd74b2e1a5ab043ecd1">Titulo</a></td></tr>
+<tr class="memdesc:aced70a8f33e71cd74b2e1a5ab043ecd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Título del audio que se muestra en la lista.  <br /></td></tr>
+<tr class="separator:aced70a8f33e71cd74b2e1a5ab043ecd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc3012441289a4d6c84cdbf458493dd1" id="r_abc3012441289a4d6c84cdbf458493dd1"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html#abc3012441289a4d6c84cdbf458493dd1">NombreArchivo</a></td></tr>
+<tr class="memdesc:abc3012441289a4d6c84cdbf458493dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre del archivo mp3 que reproduce el servidor de streaming.  <br /></td></tr>
+<tr class="separator:abc3012441289a4d6c84cdbf458493dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Datos comunes a cualquier audio. </p>
+<p>Los tipos concretos (<a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1Musica.html" title="Audio de tipo Música.">Musica</a>, <a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1Podcast.html" title="Audio de tipo Podcast.">Podcast</a>, <a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1Audiolibro.html" title="Audio de tipo Audiolibro.">Audiolibro</a>, <a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1RuidoBlanco.html" title="Audio de tipo Ruido Blanco.">RuidoBlanco</a>) embeben esta estructura para reutilizar sus campos y métodos. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="audio_8go_source.html#l00043">43</a> del archivo <a class="el" href="audio_8go_source.html">audio.go</a>.</p>
+</div><h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a0f8218d47959adfcf72701ac9dab8d1f" name="a0f8218d47959adfcf72701ac9dab8d1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f8218d47959adfcf72701ac9dab8d1f">&#9670;&#160;</a></span>ObtenerId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ObtenerId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Devuelve el identificador del audio. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Identificador del audio. </dd></dl>
+
+</div>
+</div>
+<a id="a179776dc23fab5d0391847bc192bdc6e" name="a179776dc23fab5d0391847bc192bdc6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a179776dc23fab5d0391847bc192bdc6e">&#9670;&#160;</a></span>ObtenerIdTipo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ObtenerIdTipo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Devuelve el identificador del tipo de audio. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Identificador del tipo. </dd></dl>
+
+</div>
+</div>
+<a id="abd2e189afed52b52b5ecc4ef3baf9fa3" name="abd2e189afed52b52b5ecc4ef3baf9fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd2e189afed52b52b5ecc4ef3baf9fa3">&#9670;&#160;</a></span>ObtenerTitulo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ObtenerTitulo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Devuelve el título del audio. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Título del audio. </dd></dl>
+
+</div>
+</div>
+<a id="a5ec315b69ce1978b09008f099b12fe46" name="a5ec315b69ce1978b09008f099b12fe46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec315b69ce1978b09008f099b12fe46">&#9670;&#160;</a></span>ObtenerNombreArchivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ObtenerNombreArchivo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Devuelve el nombre del archivo mp3 asociado al audio. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Nombre del archivo mp3. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de datos miembro</h2>
+<a id="a9d3d1975d636c1d5763f2e252463472c" name="a9d3d1975d636c1d5763f2e252463472c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d3d1975d636c1d5763f2e252463472c">&#9670;&#160;</a></span>Id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ServidorMetadataDeAudios::modelos::AudioBase::Id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Identificador único del audio. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="audio_8go_source.html#l00044">44</a> del archivo <a class="el" href="audio_8go_source.html">audio.go</a>.</p>
+
+</div>
+</div>
+<a id="a74a8d9d7098d1f7960ae5f95f5938ca4" name="a74a8d9d7098d1f7960ae5f95f5938ca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a8d9d7098d1f7960ae5f95f5938ca4">&#9670;&#160;</a></span>IdTipo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ServidorMetadataDeAudios::modelos::AudioBase::IdTipo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Identificador del tipo de audio al que corresponde el audio. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="audio_8go_source.html#l00045">45</a> del archivo <a class="el" href="audio_8go_source.html">audio.go</a>.</p>
+
+</div>
+</div>
+<a id="aced70a8f33e71cd74b2e1a5ab043ecd1" name="aced70a8f33e71cd74b2e1a5ab043ecd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aced70a8f33e71cd74b2e1a5ab043ecd1">&#9670;&#160;</a></span>Titulo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ServidorMetadataDeAudios::modelos::AudioBase::Titulo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Título del audio que se muestra en la lista. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="audio_8go_source.html#l00046">46</a> del archivo <a class="el" href="audio_8go_source.html">audio.go</a>.</p>
+
+</div>
+</div>
+<a id="abc3012441289a4d6c84cdbf458493dd1" name="abc3012441289a4d6c84cdbf458493dd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc3012441289a4d6c84cdbf458493dd1">&#9670;&#160;</a></span>NombreArchivo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ServidorMetadataDeAudios::modelos::AudioBase::NombreArchivo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nombre del archivo mp3 que reproduce el servidor de streaming. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="audio_8go_source.html#l00047">47</a> del archivo <a class="el" href="audio_8go_source.html">audio.go</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación de esta estructura está generada del siguiente archivo:<ul>
+<li>ServidorMetadataDeAudios/modelos/<a class="el" href="audio_8go_source.html">audio.go</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceServidorMetadataDeAudios.html">ServidorMetadataDeAudios</a></li><li class="navelem"><a class="el" href="namespaceServidorMetadataDeAudios_1_1modelos.html">modelos</a></li><li class="navelem"><a class="el" href="structServidorMetadataDeAudios_1_1modelos_1_1AudioBase.html">AudioBase</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

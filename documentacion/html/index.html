@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spotify distribuido - RPC: Spotify distribuido con RPC (Go)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Spotify distribuido - RPC<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Streaming de audio con gRPC, REST y cola de mensajes en Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Spotify distribuido con RPC (Go) </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a> Sistema distribuido para consultar y reproducir audios (Música, Podcasts, Audiolibros y Ruido Blanco) usando <b>gRPC</b>, <b>REST</b> y una <b>cola de mensajes (RabbitMQ)</b>, escrito en Go para Linux.</p>
+<div class="fragment"><div class="line">Cliente ──REST──► ServidorMetadataDeAudios           (tipos, listas y metadatos)</div>
+<div class="line">Cliente ──gRPC──► ServidorDeStreaming ──cola──► ServidorDeEstadisticas</div>
+<div class="line">                         │  (lee Audio.mp3)</div>
+<div class="line">Administrador ──REST──► ServidorDeAudios              (almacena Audio.mp3)</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1"></a>
+Carpetas</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Carpeta   </th><th class="markdownTableHeadNone">Rol   </th><th class="markdownTableHeadNone">Comunicación   </th><th class="markdownTableHeadNone">Puerto por defecto    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code><a class="el" href="namespaceCliente.html">Cliente</a></code>   </td><td class="markdownTableBodyNone">Menú de consola: ver tipos, lista, detalle y reproducir   </td><td class="markdownTableBodyNone">REST + gRPC   </td><td class="markdownTableBodyNone">—    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code><a class="el" href="namespaceAdministrador.html">Administrador</a></code>   </td><td class="markdownTableBodyNone">Menú de consola para almacenar audios mp3   </td><td class="markdownTableBodyNone">REST   </td><td class="markdownTableBodyNone">—    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code><a class="el" href="namespaceServidorMetadataDeAudios.html">ServidorMetadataDeAudios</a></code>   </td><td class="markdownTableBodyNone">Tipos de audio y metadatos (4 audios por tipo)   </td><td class="markdownTableBodyNone">REST   </td><td class="markdownTableBodyNone">5001    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code><a class="el" href="namespaceServidorDeStreaming.html">ServidorDeStreaming</a></code>   </td><td class="markdownTableBodyNone">Reproduce un audio por streaming y publica la reproducción en la cola   </td><td class="markdownTableBodyNone">gRPC + RabbitMQ   </td><td class="markdownTableBodyNone">50051    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code><a class="el" href="namespaceServidorDeAudios.html">ServidorDeAudios</a></code>   </td><td class="markdownTableBodyNone">Almacena los mp3 enviados por el administrador (<code>audios/</code>)   </td><td class="markdownTableBodyNone">REST   </td><td class="markdownTableBodyNone">5000    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code><a class="el" href="namespaceServidorDeEstadisticas.html">ServidorDeEstadisticas</a></code>   </td><td class="markdownTableBodyNone">Consume la cola, almacena e imprime las estadísticas   </td><td class="markdownTableBodyNone">RabbitMQ   </td><td class="markdownTableBodyNone">—   </td></tr>
+</table>
+<p>Cada módulo usa la misma organización por capas:</p>
+<ul>
+<li><code>main/</code> punto de entrada.</li>
+<li><code>capaControladores/</code> controladores (MVC).</li>
+<li><code>capaFachadaServices/fachada/</code> fachada con la lógica de los servicios.</li>
+<li><code>capaFachadaServices/DTOs/</code> DTOs que viajan en JSON (los DTOs protobuffer están en <code>ServidorDeStreaming/serviciosAudio</code>).</li>
+<li><code>capaAccesoADatos/</code> repositorios (patrón singleton).</li>
+<li><code>modelos/</code> modelos (MVC) y <code>vistas/</code> vistas de consola (MVC).</li>
+<li><code>componenteConexionCola/</code> conexión con RabbitMQ.</li>
+<li><code>configuracion/</code> parámetros que se pueden cambiar con variables de entorno.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Requisitos (Ubuntu/Debian)</h1>
+<div class="fragment"><div class="line"># Go 1.24.5 o superior</div>
+<div class="line">sudo apt install build-essential pkg-config libasound2-dev   # para compilar el Cliente (cgo + audio ALSA)</div>
+<div class="line">sudo apt install rabbitmq-server             # o un broker RabbitMQ accesible en la red</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+Compilar y ejecutar</h1>
+<p>Abrir una terminal por componente. Cada componente se ejecuta <b>desde su propia carpeta</b>.</p>
+<div class="fragment"><div class="line"># 0. RabbitMQ en ejecución (usuario guest/guest en localhost por defecto)</div>
+<div class="line">sudo systemctl start rabbitmq-server</div>
+<div class="line"> </div>
+<div class="line"># 1. Servidor de metadatos (REST :5001)</div>
+<div class="line">cd ServidorMetadataDeAudios &amp;&amp; go run ./main</div>
+<div class="line"> </div>
+<div class="line"># 2. Servidor de audios (REST :5000)</div>
+<div class="line">cd ServidorDeAudios &amp;&amp; go run ./main</div>
+<div class="line"> </div>
+<div class="line"># 3. Servidor de estadísticas (consumidor de la cola)</div>
+<div class="line">cd ServidorDeEstadisticas &amp;&amp; go run ./main</div>
+<div class="line"> </div>
+<div class="line"># 4. Servidor de streaming (gRPC :50051)</div>
+<div class="line">cd ServidorDeStreaming &amp;&amp; go run ./main</div>
+<div class="line"> </div>
+<div class="line"># 5. Cliente</div>
+<div class="line">cd Cliente &amp;&amp; go run ./main</div>
+<div class="line"> </div>
+<div class="line"># 6. Administrador</div>
+<div class="line">cd Administrador &amp;&amp; go run ./main</div>
+</div><!-- fragment --><p>La primera vez, <code>go run</code> descarga las dependencias indicadas en <code>go.mod</code>/<code>go.sum</code> (<code>go mod tidy</code> también las descarga). Para generar ejecutables: <code>go build -o servidor ./main</code>.</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Configuración (variables de entorno)</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Variable   </th><th class="markdownTableHeadNone">Componente   </th><th class="markdownTableHeadNone">Valor por defecto    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>PUERTO_METADATOS</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespaceServidorMetadataDeAudios.html">ServidorMetadataDeAudios</a>   </td><td class="markdownTableBodyNone"><code>5001</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>PUERTO_AUDIOS</code>, <code>RUTA_AUDIOS</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespaceServidorDeAudios.html">ServidorDeAudios</a>   </td><td class="markdownTableBodyNone"><code>5000</code>, <code>audios</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>PUERTO_STREAMING</code>, <code>RUTA_AUDIOS</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespaceServidorDeStreaming.html">ServidorDeStreaming</a>   </td><td class="markdownTableBodyNone"><code>50051</code>, <code>../ServidorDeAudios/audios</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>RABBITMQ_URL</code>   </td><td class="markdownTableBodyNone">Streaming y Estadísticas   </td><td class="markdownTableBodyNone"><code>amqp://guest:guest@localhost:5672/</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>URL_METADATOS</code>, <code>DIRECCION_STREAMING</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespaceCliente.html">Cliente</a>   </td><td class="markdownTableBodyNone"><code><a href="http://localhost:5001">http://localhost:5001</a></code>, <code>localhost:50051</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>URL_SERVIDOR_AUDIOS</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespaceAdministrador.html">Administrador</a>   </td><td class="markdownTableBodyNone"><code><a href="http://localhost:5000">http://localhost:5000</a></code>   </td></tr>
+</table>
+<p>Ejemplo en máquinas distintas:</p>
+<div class="fragment"><div class="line">RABBITMQ_URL=amqp://admin:1234@10.0.0.5:5672/ go run ./main</div>
+<div class="line">URL_METADATOS=http://10.0.0.2:5001 DIRECCION_STREAMING=10.0.0.3:50051 go run ./main</div>
+</div><!-- fragment --><p>El servidor de streaming lee los mp3 de la carpeta donde el servidor de audios los almacena (el recurso <em>Audio.mp3</em> del diagrama). Si se ejecutan en máquinas distintas, <code>RUTA_AUDIOS</code> debe apuntar a esa carpeta compartida (por ejemplo, NFS).</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Servicios</h1>
+<p><b>REST – <a class="el" href="namespaceServidorMetadataDeAudios.html">ServidorMetadataDeAudios</a></b></p>
+<ul>
+<li><code>GET /tipos</code> → lista de tipos (<code>id</code>, <code>nombre</code>).</li>
+<li><code>GET /tipos/{idTipo}/audios</code> → audios de un tipo.</li>
+<li><code>GET /audios/{idAudio}</code> → detalle y metadatos de un audio.</li>
+</ul>
+<p><b>REST – <a class="el" href="namespaceServidorDeAudios.html">ServidorDeAudios</a></b></p>
+<ul>
+<li><code>POST /audios/almacenamiento</code> (multipart: <code>archivo</code>, <code>titulo</code>, <code>tipo</code>, <code>nombreArchivo</code>) → almacena el mp3.</li>
+<li><code>GET /audios</code> → audios almacenados.</li>
+</ul>
+<p><b>gRPC – <a class="el" href="namespaceServidorDeStreaming.html">ServidorDeStreaming</a></b> (<code>audio.proto</code>)</p>
+<ul>
+<li><code>rpc AudioStream(AudioRequest) returns (stream AudioChunk)</code> → fragmentos de 32 KB.</li>
+<li>Regenerar los stubs: <code>protoc --go_out=. --go-grpc_out=. audio.proto</code>.</li>
+</ul>
+<p><b>Cola – RabbitMQ</b>: cola durable <code>reproducciones_audios</code>; cada reproducción se publica en JSON desde el servidor de streaming y la consume el servidor de estadísticas.</p>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Audios de ejemplo</h1>
+<p><code>ServidorDeAudios/audios/</code> trae 16 mp3 cortos generados para el laboratorio (pistas instrumentales sintetizadas, voces sintéticas y ruido). Para usar una canción real, se sube con el <a class="el" href="namespaceAdministrador.html">Administrador</a> indicando el mismo nombre de archivo que tiene en los metadatos (por ejemplo <code>musica_bohemian_rhapsody.mp3</code>).</p>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Documentación (Doxygen)</h1>
+<div class="fragment"><div class="line">doxygen Doxyfile      # genera documentacion/html/index.html</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
