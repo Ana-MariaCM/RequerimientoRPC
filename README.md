@@ -1,8 +1,8 @@
-# Spotify distribuido con RPC (Go)
+# Requerimiento de RPC
 
-Sistema distribuido para consultar y reproducir audios (Música, Podcasts,
+Sistema para consultar y reproducir audios (Música, Podcasts,
 Audiolibros y Ruido Blanco) usando **gRPC**, **REST** y una **cola de mensajes
-(RabbitMQ)**, escrito en Go para Linux.
+(RabbitMQ)**
 
 ```
  Cliente ──REST──► ServidorMetadataDeAudios           (tipos, listas y metadatos)
@@ -89,9 +89,8 @@ RABBITMQ_URL=amqp://admin:1234@10.0.0.5:5672/ go run ./main
 URL_METADATOS=http://10.0.0.2:5001 DIRECCION_STREAMING=10.0.0.3:50051 go run ./main
 ```
 
-El servidor de streaming lee los mp3 de la carpeta donde el servidor de audios
-los almacena (el recurso *Audio.mp3* del diagrama). Si se ejecutan en máquinas
-distintas, `RUTA_AUDIOS` debe apuntar a esa carpeta compartida (por ejemplo, NFS).
+El servidor de streaming lee los mp3 de la carpeta donde el servidor de audios 
+los almacena. Si se ejecutan en máquinas distintas, `RUTA_AUDIOS` debe apuntar a esa carpeta compartida (por ejemplo, NFS).
 
 ## Servicios
 
@@ -113,13 +112,6 @@ distintas, `RUTA_AUDIOS` debe apuntar a esa carpeta compartida (por ejemplo, NFS
 
 **Cola – RabbitMQ**: cola durable `reproducciones_audios`; cada reproducción se
 publica en JSON desde el servidor de streaming y la consume el servidor de estadísticas.
-
-## Audios de ejemplo
-
-`ServidorDeAudios/audios/` trae 16 mp3 cortos generados para el laboratorio
-(pistas instrumentales sintetizadas, voces sintéticas y ruido). Para usar una
-canción real, se sube con el Administrador indicando el mismo nombre de archivo
-que tiene en los metadatos (por ejemplo `musica_bohemian_rhapsody.mp3`).
 
 ## Documentación (Doxygen)
 
