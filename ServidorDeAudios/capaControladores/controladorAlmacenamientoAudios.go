@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strconv"
 
 	dtos "almacenamiento/capaFachadaServices/DTOs"
 	capafachada "almacenamiento/capaFachadaServices/fachada"
@@ -34,8 +35,10 @@ func NuevoControladorAlmacenamientoAudios() *ControladorAlmacenamientoAudios {
 /**
  * @brief Servicio REST POST /audios/almacenamiento: almacena un nuevo audio mp3.
  *
- * Recibe un formulario multipart con los campos "archivo" (mp3), "titulo",
- * "tipo" y "nombreArchivo".
+ * Recibe un formulario multipart con los campos "archivo" (mp3), "idTipo",
+ * "titulo" y "metadatos" (objeto JSON clave -> valor con los metadatos que
+ * digitó el administrador). La fachada guarda el mp3 y registra los metadatos
+ * en el servidor de metadatos, de modo que el audio queda disponible para el cliente.
  * @param w Escritor de la respuesta HTTP.
  * @param r Petición HTTP recibida.
  */
@@ -63,17 +66,30 @@ func (thisC *ControladorAlmacenamientoAudios) AlmacenarAudio(w http.ResponseWrit
 		return
 	}
 
-	audioDTO := dtos.AudioAlmacenarDTOInput{
-		Titulo:        r.FormValue("titulo"),
-		Tipo:          r.FormValue("tipo"),
-		NombreArchivo: r.FormValue("nombreArchivo"),
+	idTipo, err := strconv.Atoi(r.FormValue("idTipo"))
+	if err != nil {
+		responderError(w, http.StatusBadRequest, "El campo idTipo debe ser un número entero")
+		return
 	}
-	fmt.Printf("[REST] Almacenando audio \"%s\" [%s] (%d bytes)\n", audioDTO.Titulo, audioDTO.Tipo, len(datos))
+	audioDTO := dtos.AudioAlmacenarDTOInput{IdTipo: idTipo, Titulo: r.FormValue("titulo")}
+	if texto := r.FormValue("metadatos"); texto != "" {
+		if err := json.Unmarshal([]byte(texto), &audioDTO.Metadatos); err != nil {
+			responderError(w, http.StatusBadRequest, "El campo metadatos no es un JSON válido")
+			return
+		}
+	}
+	fmt.Printf("[REST] Almacenando audio \"%s\" (tipo %d, %d metadatos, %d bytes)\n",
+		audioDTO.Titulo, audioDTO.IdTipo, len(audioDTO.Metadatos), len(datos))
 
 	respuesta, err := thisC.fachada.GuardarAudio(audioDTO, datos)
 	if errors.Is(err, capafachada.ErrAudioInvalido) {
 		fmt.Println("[REST]", err)
 		responderError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	if errors.Is(err, capafachada.ErrRegistroMetadatos) {
+		fmt.Println("[REST]", err)
+		responderError(w, http.StatusBadGateway, err.Error())
 		return
 	}
 	if err != nil {
@@ -82,7 +98,8 @@ func (thisC *ControladorAlmacenamientoAudios) AlmacenarAudio(w http.ResponseWrit
 		return
 	}
 
-	fmt.Printf("[REST] POST /audios/almacenamiento -> audio almacenado como %s\n", respuesta.Archivo.NombreArchivo)
+	fmt.Printf("[REST] POST /audios/almacenamiento -> audio \"%s\" almacenado como %s y registrado con id %d\n",
+		respuesta.Titulo, respuesta.Archivo.NombreArchivo, respuesta.IdAudio)
 	responderJSON(w, http.StatusCreated, respuesta)
 }
 

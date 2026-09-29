@@ -7,22 +7,29 @@ package fachada
 import (
 	"errors"
 	"fmt"
-	"path/filepath"
 	"strings"
-	"unicode"
 
 	capaaccesodatos "almacenamiento/capaAccesoADatos"
 	dtos "almacenamiento/capaFachadaServices/DTOs"
+	componenteclientemetadatos "almacenamiento/componenteClienteMetadatos"
+	"almacenamiento/configuracion"
 )
 
 /** @brief Error que indica que los datos recibidos no corresponden a un audio mp3 válido. */
 var ErrAudioInvalido = errors.New("audio inválido")
 
+/** @brief Error que indica que el servidor de metadatos no registró el audio (el mp3 se elimina). */
+var ErrRegistroMetadatos = errors.New("no se registraron los metadatos")
+
+/** @brief Prefijo del nombre de archivo según el identificador del tipo de audio. */
+var prefijosPorTipo = map[int]string{1: "musica", 2: "podcast", 3: "audiolibro", 4: "ruido"}
+
 /**
  * @brief Fachada del servidor de audios.
  */
 type FachadaAlmacenamiento struct {
-	repositorio *capaaccesodatos.RepositorioAudios ///< Acceso a los archivos en disco.
+	repositorio      *capaaccesodatos.RepositorioAudios           ///< Acceso a los archivos en disco.
+	clienteMetadatos *componenteclientemetadatos.ClienteMetadatos ///< Registro de metadatos en el servidor de metadatos.
 }
 
 /**
@@ -31,16 +38,32 @@ type FachadaAlmacenamiento struct {
  */
 func NuevaFachadaAlmacenamiento() *FachadaAlmacenamiento {
 	fmt.Println("Inicializando fachada de almacenamiento...")
-	return &FachadaAlmacenamiento{repositorio: capaaccesodatos.GetRepositorioAudios()}
+	return &FachadaAlmacenamiento{
+		repositorio:      capaaccesodatos.GetRepositorioAudios(),
+		clienteMetadatos: componenteclientemetadatos.NuevoClienteMetadatos(configuracion.ObtenerURLMetadatos()),
+	}
 }
 
 /**
- * @brief Valida y almacena un audio mp3.
- * @param audio Datos descriptivos del audio (título, tipo y nombre de archivo).
+ * @brief Valida y almacena un audio mp3 junto con los metadatos digitados por el administrador.
+ *
+ * Pasos:
+ *  1. Valida el título, el tipo y que el archivo sea un mp3.
+ *  2. Guarda el mp3 en la carpeta de audios (compartida con el servidor de
+ *     streaming) con un nombre generado a partir del tipo y del título.
+ *  3. Registra los metadatos en el servidor de metadatos (REST POST /audios),
+ *     de modo que el audio aparece en el cliente en su siguiente consulta.
+ *  4. Si el registro falla, elimina el mp3 para no dejar audios sin metadatos.
+ * @param audio Tipo, título y metadatos del audio.
  * @param datos Contenido binario del archivo mp3.
- * @return DTO con la confirmación, o un error (ErrAudioInvalido si los datos no son válidos).
+ * @return DTO con la confirmación, o un error (ErrAudioInvalido o ErrRegistroMetadatos).
  */
 func (thisF *FachadaAlmacenamiento) GuardarAudio(audio dtos.AudioAlmacenarDTOInput, datos []byte) (dtos.AudioAlmacenadoDTOOutput, error) {
+	titulo := strings.TrimSpace(audio.Titulo)
+	prefijo, tipoValido := prefijosPorTipo[audio.IdTipo]
+	if titulo == "" || !tipoValido {
+		return dtos.AudioAlmacenadoDTOOutput{}, fmt.Errorf("%w: el título y un tipo de audio válido son obligatorios", ErrAudioInvalido)
+	}
 	if len(datos) == 0 {
 		return dtos.AudioAlmacenadoDTOOutput{}, fmt.Errorf("%w: el archivo está vacío", ErrAudioInvalido)
 	}
@@ -48,20 +71,28 @@ func (thisF *FachadaAlmacenamiento) GuardarAudio(audio dtos.AudioAlmacenarDTOInp
 		return dtos.AudioAlmacenadoDTOOutput{}, fmt.Errorf("%w: el archivo no tiene formato mp3", ErrAudioInvalido)
 	}
 
-	nombreArchivo := normalizarNombreArchivo(audio.NombreArchivo, audio.Titulo, audio.Tipo)
-	if nombreArchivo == "" {
-		return dtos.AudioAlmacenadoDTOOutput{}, fmt.Errorf("%w: se requiere un título o un nombre de archivo", ErrAudioInvalido)
-	}
-
-	archivo, err := thisF.repositorio.GuardarAudio(nombreArchivo, datos)
+	archivo, err := thisF.repositorio.GuardarAudio(generarNombreArchivo(prefijo, titulo), datos)
 	if err != nil {
 		return dtos.AudioAlmacenadoDTOOutput{}, err
 	}
 
+	registrado, err := thisF.clienteMetadatos.RegistrarAudio(dtos.AudioRegistrarDTOOutput{
+		IdTipo:        audio.IdTipo,
+		Titulo:        titulo,
+		NombreArchivo: archivo.NombreArchivo,
+		Metadatos:     audio.Metadatos,
+	})
+	if err != nil {
+		thisF.repositorio.EliminarAudio(archivo.NombreArchivo)
+		return dtos.AudioAlmacenadoDTOOutput{}, fmt.Errorf("%w: %v", ErrRegistroMetadatos, err)
+	}
+	fmt.Printf("[REST] Metadatos registrados: audio %d en %s\n", registrado.Id, registrado.NombreTipo)
+
 	return dtos.AudioAlmacenadoDTOOutput{
-		Mensaje: "Audio almacenado correctamente",
-		Titulo:  audio.Titulo,
-		Tipo:    audio.Tipo,
+		Mensaje: "Audio almacenado y registrado correctamente",
+		IdAudio: registrado.Id,
+		Titulo:  registrado.Titulo,
+		Tipo:    registrado.NombreTipo,
 		Archivo: dtos.ArchivoAudioDTOOutput{NombreArchivo: archivo.NombreArchivo, TamanioBytes: archivo.TamanioBytes},
 	}, nil
 }
@@ -96,41 +127,31 @@ func esMP3(datos []byte) bool {
 }
 
 /**
- * @brief Construye un nombre de archivo seguro terminado en .mp3.
+ * @brief Genera un nombre de archivo seguro a partir del tipo y del título.
  *
- * Si no se indica un nombre de archivo, se construye a partir del título y del
- * tipo (titulo_tipo.mp3). Se eliminan rutas y caracteres no permitidos.
- * @param nombreArchivo Nombre sugerido por el administrador (puede estar vacío).
+ * Se pasan las letras a minúsculas, se quitan tildes y se reemplaza cualquier
+ * otro carácter por "_" (por ejemplo "Música" + "La Bicicleta" ->
+ * "musica_la_bicicleta.mp3"). Así el nombre funciona en cualquier sistema operativo.
+ * @param prefijo Prefijo del tipo de audio (musica, podcast, audiolibro o ruido).
  * @param titulo Título del audio.
- * @param tipo Tipo del audio.
- * @return Nombre de archivo normalizado, o cadena vacía si no hay datos suficientes.
+ * @return Nombre del archivo terminado en .mp3.
  */
-func normalizarNombreArchivo(nombreArchivo string, titulo string, tipo string) string {
-	nombre := strings.TrimSpace(filepath.Base(strings.ReplaceAll(nombreArchivo, "\\", "/")))
-	if nombre == "" || nombre == "." || nombre == "/" {
-		if strings.TrimSpace(titulo) == "" {
-			return ""
-		}
-		nombre = strings.TrimSpace(titulo)
-		if strings.TrimSpace(tipo) != "" {
-			nombre += "_" + strings.TrimSpace(tipo)
+func generarNombreArchivo(prefijo string, titulo string) string {
+	sinTildes := strings.NewReplacer("á", "a", "é", "e", "í", "i", "ó", "o", "ú", "u", "ü", "u", "ñ", "n").
+		Replace(strings.ToLower(titulo))
+
+	var nombre strings.Builder
+	for _, caracter := range sinTildes {
+		if (caracter >= 'a' && caracter <= 'z') || (caracter >= '0' && caracter <= '9') {
+			nombre.WriteRune(caracter)
+		} else if nombre.Len() > 0 && !strings.HasSuffix(nombre.String(), "_") {
+			nombre.WriteRune('_')
 		}
 	}
 
-	nombre = strings.TrimSuffix(nombre, filepath.Ext(nombre))
-	nombre = strings.Map(func(r rune) rune {
-		if unicode.IsLetter(r) || unicode.IsDigit(r) || r == '_' || r == '-' || r == '.' {
-			return r
-		}
-		if unicode.IsSpace(r) {
-			return '_'
-		}
-		return -1
-	}, nombre)
-	nombre = strings.Trim(nombre, ".")
-
-	if nombre == "" {
-		return ""
+	base := strings.Trim(nombre.String(), "_")
+	if base == "" {
+		base = "audio"
 	}
-	return nombre + ".mp3"
+	return prefijo + "_" + base + ".mp3"
 }

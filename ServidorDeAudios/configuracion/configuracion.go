@@ -4,13 +4,19 @@
  */
 package configuracion
 
-import "os"
+import (
+	"os"
+	"strings"
+)
 
 /** @brief Puerto HTTP por defecto del servidor REST de audios. */
 const PuertoPorDefecto = "5000"
 
 /** @brief Carpeta por defecto donde se almacenan los archivos mp3. */
 const RutaAudiosPorDefecto = "audios"
+
+/** @brief URL por defecto del servidor de metadatos donde se registran los audios nuevos. */
+const URLMetadatosPorDefecto = "http://localhost:5001"
 
 /** @brief Tamaño máximo en bytes de un audio recibido (100 MB). */
 const TamanioMaximoAudio = 100 << 20
@@ -29,6 +35,14 @@ func ObtenerPuerto() string {
  */
 func ObtenerRutaAudios() string {
 	return obtenerVariable("RUTA_AUDIOS", RutaAudiosPorDefecto)
+}
+
+/**
+ * @brief Obtiene la URL del servidor de metadatos (variable URL_METADATOS).
+ * @return URL base sin barra final.
+ */
+func ObtenerURLMetadatos() string {
+	return strings.TrimRight(obtenerVariable("URL_METADATOS", URLMetadatosPorDefecto), "/")
 }
 
 /**

@@ -100,6 +100,44 @@ func (thisC *ControladorMetadatos) ConsultarDetalleAudio(w http.ResponseWriter, 
 }
 
 /**
+ * @brief Servicio REST POST /audios: registra los metadatos de un audio nuevo.
+ *
+ * Lo invoca el servidor de audios cada vez que el administrador almacena un mp3.
+ * @param w Escritor de la respuesta HTTP.
+ * @param r Petición HTTP con el DTO AudioRegistrarDTOInput en formato JSON.
+ */
+func (thisC *ControladorMetadatos) RegistrarAudio(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("\n[REST] POST /audios invocado por %s\n", r.RemoteAddr)
+
+	var audioDTO dtos.AudioRegistrarDTOInput
+	if err := json.NewDecoder(r.Body).Decode(&audioDTO); err != nil {
+		fmt.Println("[REST] Cuerpo JSON inválido:", err)
+		responderError(w, http.StatusBadRequest, "El cuerpo de la petición no es un JSON válido")
+		return
+	}
+
+	detalle, esNuevo, err := thisC.fachada.RegistrarAudio(audioDTO)
+	if errors.Is(err, capafachada.ErrDatosInvalidos) {
+		fmt.Println("[REST]", err)
+		responderError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	if err != nil {
+		fmt.Println("[REST]", err)
+		responderError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	if esNuevo {
+		fmt.Printf("[REST] POST /audios -> audio \"%s\" registrado con id %d [%s]\n", detalle.Titulo, detalle.Id, detalle.NombreTipo)
+		responderJSON(w, http.StatusCreated, detalle)
+		return
+	}
+	fmt.Printf("[REST] POST /audios -> metadatos del audio %d (\"%s\") actualizados\n", detalle.Id, detalle.Titulo)
+	responderJSON(w, http.StatusOK, detalle)
+}
+
+/**
  * @brief Serializa un objeto a JSON y lo escribe en la respuesta HTTP.
  * @param w Escritor de la respuesta HTTP.
  * @param codigo Código de estado HTTP.

@@ -116,7 +116,7 @@ func cargarAudiolibros() []modelos.Audio {
 	}
 }
 
-/**Historia
+/**
  * @brief Construye los audios de tipo Ruido Blanco.
  * @return Bucles de ruido precargados.
  */

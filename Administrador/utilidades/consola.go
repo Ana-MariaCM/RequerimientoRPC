@@ -32,6 +32,36 @@ func LeerTexto(mensaje string) string {
 }
 
 /**
+ * @brief Lee un texto que no puede quedar vacío.
+ * @param mensaje Texto que se muestra antes de leer.
+ * @return Texto ingresado.
+ */
+func LeerTextoObligatorio(mensaje string) string {
+	for {
+		texto := LeerTexto(mensaje)
+		if texto != "" {
+			return texto
+		}
+		fmt.Println("Este dato es obligatorio.")
+	}
+}
+
+/**
+ * @brief Lee un número entero obligatorio.
+ * @param mensaje Texto que se muestra antes de leer.
+ * @return El número ingresado, en formato texto.
+ */
+func LeerNumeroObligatorio(mensaje string) string {
+	for {
+		texto := LeerTextoObligatorio(mensaje)
+		if _, err := strconv.Atoi(texto); err == nil {
+			return texto
+		}
+		fmt.Println("Ingrese un número entero.")
+	}
+}
+
+/**
  * @brief Lee una opción numérica comprendida entre un mínimo y un máximo.
  *
  * Repite la lectura hasta que el usuario ingrese un número válido.

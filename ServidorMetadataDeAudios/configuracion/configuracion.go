@@ -13,6 +13,20 @@ import "os"
 const PuertoPorDefecto = "5001"
 
 /**
+ * @brief Archivo JSON por defecto donde se guardan los metadatos de los audios
+ *        que registra el administrador (ruta relativa a la carpeta del servidor).
+ */
+const RutaAudiosRegistradosPorDefecto = "datos/audiosRegistrados.json"
+
+/**
+ * @brief Obtiene la ruta del archivo JSON de audios registrados (variable RUTA_AUDIOS_REGISTRADOS).
+ * @return Ruta del archivo JSON.
+ */
+func ObtenerRutaAudiosRegistrados() string {
+	return obtenerVariable("RUTA_AUDIOS_REGISTRADOS", RutaAudiosRegistradosPorDefecto)
+}
+
+/**
  * @brief Obtiene el puerto en el que escuchará el servidor REST.
  *
  * Se consulta la variable de entorno PUERTO_METADATOS; si no existe se usa

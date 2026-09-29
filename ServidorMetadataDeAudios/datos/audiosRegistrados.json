@@ -1,0 +1,16 @@
+[
+  {
+    "id": 10,
+    "idTipo": 1,
+    "titulo": "Hola soledad",
+    "nombreArchivo": "musica_hola_soledad.mp3",
+    "metadatos": {
+      "album": "Hola Soledad",
+      "anioLanzamiento": "1995",
+      "artistaPrincipal": "Rolando La Serie",
+      "duracion": "03:00",
+      "generoMusical": "Bolero",
+      "selloDiscografico": "La Serie"
+    }
+  }
+]
