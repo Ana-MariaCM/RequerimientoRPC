@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spotify distribuido - RPC: Referencia de la estructura ServidorDeEstadisticas::fachada::FachadaEstadisticas</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Spotify distribuido - RPC<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Streaming de audio con gRPC, REST y cola de mensajes en Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structServidorDeEstadisticas_1_1fachada_1_1FachadaEstadisticas.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pub-attribs">Atributos públicos</a> &#124;
+<a href="structServidorDeEstadisticas_1_1fachada_1_1FachadaEstadisticas-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la estructura ServidorDeEstadisticas::fachada::FachadaEstadisticas</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fachada del servidor de estadísticas.  
+ <a href="structServidorDeEstadisticas_1_1fachada_1_1FachadaEstadisticas.html#details">Más...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a317c366090d66b7d22068463eddab902" id="r_a317c366090d66b7d22068463eddab902"><td class="memItemLeft" align="right" valign="top">tuple&lt; <a class="el" href="structServidorDeEstadisticas_1_1modelos_1_1Reproduccion.html">modelos::Reproduccion</a>, <a class="el" href="structServidorDeEstadisticas_1_1modelos_1_1ResumenEstadisticas.html">modelos::ResumenEstadisticas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorDeEstadisticas_1_1fachada_1_1FachadaEstadisticas.html#a317c366090d66b7d22068463eddab902">RegistrarReproduccion</a> (<a class="el" href="structServidorDeEstadisticas_1_1dtos_1_1ReproduccionDTOInput.html">dtos::ReproduccionDTOInput</a> reproduccionDTO)</td></tr>
+<tr class="memdesc:a317c366090d66b7d22068463eddab902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra una reproducción recibida desde la cola.  <br /></td></tr>
+<tr class="separator:a317c366090d66b7d22068463eddab902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atributos públicos</h2></td></tr>
+<tr class="memitem:ae129f98b0db59c7db042b1e0ba654a47" id="r_ae129f98b0db59c7db042b1e0ba654a47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structServidorDeEstadisticas_1_1capaaccesodatos_1_1RepositorioEstadisticas.html">capaaccesodatos::RepositorioEstadisticas</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServidorDeEstadisticas_1_1fachada_1_1FachadaEstadisticas.html#ae129f98b0db59c7db042b1e0ba654a47">repositorio</a></td></tr>
+<tr class="memdesc:ae129f98b0db59c7db042b1e0ba654a47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceso a las reproducciones almacenadas.  <br /></td></tr>
+<tr class="separator:ae129f98b0db59c7db042b1e0ba654a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Fachada del servidor de estadísticas. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="fachadaEstadisticas_8go_source.html#l00016">16</a> del archivo <a class="el" href="fachadaEstadisticas_8go_source.html">fachadaEstadisticas.go</a>.</p>
+</div><h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a317c366090d66b7d22068463eddab902" name="a317c366090d66b7d22068463eddab902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a317c366090d66b7d22068463eddab902">&#9670;&#160;</a></span>RegistrarReproduccion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple&lt; <a class="el" href="structServidorDeEstadisticas_1_1modelos_1_1Reproduccion.html">modelos::Reproduccion</a>, <a class="el" href="structServidorDeEstadisticas_1_1modelos_1_1ResumenEstadisticas.html">modelos::ResumenEstadisticas</a> &gt; RegistrarReproduccion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structServidorDeEstadisticas_1_1dtos_1_1ReproduccionDTOInput.html">dtos::ReproduccionDTOInput</a>&#160;</td>
+          <td class="paramname"><em>reproduccionDTO</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registra una reproducción recibida desde la cola. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reproduccionDTO</td><td>Datos de la reproducción deserializados del mensaje JSON. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>La reproducción almacenada y el resumen actualizado de estadísticas. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de datos miembro</h2>
+<a id="ae129f98b0db59c7db042b1e0ba654a47" name="ae129f98b0db59c7db042b1e0ba654a47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae129f98b0db59c7db042b1e0ba654a47">&#9670;&#160;</a></span>repositorio</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structServidorDeEstadisticas_1_1capaaccesodatos_1_1RepositorioEstadisticas.html">capaaccesodatos::RepositorioEstadisticas</a>* ServidorDeEstadisticas::fachada::FachadaEstadisticas::repositorio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acceso a las reproducciones almacenadas. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="fachadaEstadisticas_8go_source.html#l00017">17</a> del archivo <a class="el" href="fachadaEstadisticas_8go_source.html">fachadaEstadisticas.go</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación de esta estructura está generada del siguiente archivo:<ul>
+<li>ServidorDeEstadisticas/capaFachadaServices/fachada/<a class="el" href="fachadaEstadisticas_8go_source.html">fachadaEstadisticas.go</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceServidorDeEstadisticas.html">ServidorDeEstadisticas</a></li><li class="navelem"><a class="el" href="namespaceServidorDeEstadisticas_1_1fachada.html">fachada</a></li><li class="navelem"><a class="el" href="structServidorDeEstadisticas_1_1fachada_1_1FachadaEstadisticas.html">FachadaEstadisticas</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

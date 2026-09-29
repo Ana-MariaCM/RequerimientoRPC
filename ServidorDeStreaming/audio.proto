@@ -1,19 +1,29 @@
+// Contrato del servicio gRPC de streaming de audio.
+// Los mensajes AudioRequest y AudioChunk actúan como DTOs que viajan en
+// formato protobuffer entre el cliente y el servidor de streaming.
+// Generación de stubs: protoc --go_out=. --go-grpc_out=. audio.proto
 syntax = "proto3";
 
 package servicios;
 option go_package = "/serviciosAudio";
 
+/// Servicio que permite reproducir un audio mediante streaming.
 service AudioService {
-  // Streaming de audio
+  /// Streaming de audio: el servidor envía el archivo mp3 fragmento a fragmento.
   rpc AudioStream(AudioRequest) returns (stream AudioChunk);
 }
 
+/// Petición de reproducción de un audio.
 message AudioRequest {
-  string filename = 1; // Titulo del audio
+  string filename = 1;  ///< Nombre del archivo mp3 a reproducir.
+  int32 idAudio = 2;    ///< Identificador del audio en el servidor de metadatos.
+  string titulo = 3;    ///< Título del audio (para estadísticas).
+  string tipo = 4;      ///< Nombre del tipo de audio (para estadísticas).
+  string usuario = 5;   ///< Usuario que reproduce el audio.
 }
 
+/// Fragmento del archivo de audio enviado por el servidor.
 message AudioChunk {
-  bytes data = 1; // Fragmento de audio
+  bytes data = 1;             ///< Bytes del fragmento de audio.
+  int32 numeroFragmento = 2;  ///< Número consecutivo del fragmento.
 }
-
-

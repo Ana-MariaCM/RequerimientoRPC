@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spotify distribuido - RPC: Archivo de código fuente Administrador/capaFachadaServices/DTOs/audioDTOs.go</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Spotify distribuido - RPC<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Streaming de audio con gRPC, REST y cola de mensajes en Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('audioDTOs_8go_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">audioDTOs.go</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="audioDTOs_8go.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file audioDTOs.go</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief DTOs intercambiados con el servidor de audios en formato JSON.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="}">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="namespaceAdministrador_1_1dtos.html">    5</a></span><span class="keyword">package </span>dtos</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"></span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @brief Datos del audio que el administrador desea almacenar.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenarDTO.html">   10</a></span>type AudioAlmacenarDTO struct {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenarDTO.html#a4cfed7160929295bf648be0e0acafa0a">   11</a></span>    RutaLocal     string <span class="comment">///&lt; Ruta del archivo mp3 en el equipo del administrador.</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenarDTO.html#a22a1e8b85320312aac54627afea353ed">   12</a></span>    Titulo        string <span class="comment">///&lt; Título del audio.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenarDTO.html#afd48137c7659b715e11dc731cf0d1f82">   13</a></span>    Tipo          string <span class="comment">///&lt; Tipo de audio.</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenarDTO.html#a621c4c9f5c7b4d3fee7e55f097d79d97">   14</a></span>    NombreArchivo string <span class="comment">///&lt; Nombre con el que se almacenará en el servidor.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * @brief Archivo mp3 almacenado en el servidor.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1ArchivoAudioDTO.html">   20</a></span>type ArchivoAudioDTO struct {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1ArchivoAudioDTO.html#aff582950a60cde17ffde978f36bcf215">   21</a></span>    NombreArchivo string `json:&quot;nombreArchivo&quot;` <span class="comment">///&lt; Nombre del archivo mp3.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1ArchivoAudioDTO.html#ae1f9379e48a27820b923a39f6d5b2621">   22</a></span>    TamanioBytes  int64  `json:&quot;tamanioBytes&quot;`  <span class="comment">///&lt; Tamaño del archivo en bytes.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"></span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @brief Respuesta del servidor al almacenar un audio.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenadoDTO.html">   28</a></span>type AudioAlmacenadoDTO struct {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenadoDTO.html#ac803bc9fa67c4802e0950217b16367af">   29</a></span>    Mensaje string          `json:&quot;mensaje&quot;` <span class="comment">///&lt; Mensaje de confirmación.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenadoDTO.html#af874e426776f278aa86ef5025b010d55">   30</a></span>    Titulo  string          `json:&quot;titulo&quot;`  <span class="comment">///&lt; Título del audio almacenado.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenadoDTO.html#a818060b047b760a282f360420b45baed">   31</a></span>    Tipo    string          `json:&quot;tipo&quot;`    <span class="comment">///&lt; Tipo del audio almacenado.</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1AudioAlmacenadoDTO.html#a07213c618da9542809cee628191474e6">   32</a></span>    Archivo ArchivoAudioDTO `json:&quot;archivo&quot;` <span class="comment">///&lt; Datos del archivo guardado.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"></span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * @brief Mensaje de error devuelto por el servidor.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1RespuestaErrorDTO.html">   38</a></span>type RespuestaErrorDTO struct {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1RespuestaErrorDTO.html#ace4c66e7b9723c8d3698c95751b2bc31">   39</a></span>    Codigo  int    `json:&quot;codigo&quot;`  <span class="comment">///&lt; Código de estado HTTP.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structAdministrador_1_1dtos_1_1RespuestaErrorDTO.html#a3c575843604ad68bd77e04479c6b48ef">   40</a></span>    Mensaje string `json:&quot;mensaje&quot;` <span class="comment">///&lt; Descripción del error.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+</div>
+</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8c785eac9571b261a9c8d7166bde7477.html">Administrador</a></li><li class="navelem"><a class="el" href="dir_a35b42977bae72fe14fe59d4445dd005.html">capaFachadaServices</a></li><li class="navelem"><a class="el" href="dir_dc477bd4caddf90e1916c7863d1fbe12.html">DTOs</a></li><li class="navelem"><a class="el" href="audioDTOs_8go.html">audioDTOs.go</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

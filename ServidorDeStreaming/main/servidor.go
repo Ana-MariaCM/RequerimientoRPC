@@ -1,3 +1,7 @@
+/**
+ * @file servidor.go
+ * @brief Punto de entrada del servidor de streaming (gRPC).
+ */
 package main
 
 import (
@@ -5,21 +9,27 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
-	capacontroladores "servidor.local/grpc-servidor/capaControladores"
-	pb "servidor.local/grpc-servidor/serviciosAudio"
+
+	capacontroladores "streaming.local/servidor-streaming/capaControladores"
+	"streaming.local/servidor-streaming/configuracion"
+	pb "streaming.local/servidor-streaming/serviciosAudio"
 )
 
+/**
+ * @brief Registra el servicio AudioService y pone a escuchar el servidor gRPC.
+ */
 func main() {
-	lis, err := net.Listen("tcp", ":50051")
+	puerto := configuracion.ObtenerPuerto()
+	escucha, err := net.Listen("tcp", ":"+puerto)
 	if err != nil {
 		panic(err)
 	}
 
-	grpcServer := grpc.NewServer()
-	pb.RegisterAudioServiceServer(grpcServer, &capacontroladores.ControladorServidor{})
+	servidorGRPC := grpc.NewServer()
+	pb.RegisterAudioServiceServer(servidorGRPC, capacontroladores.NuevoControladorStreaming())
 
-	fmt.Println("Servidor gRPC escuchando en :50051...")
-	if err := grpcServer.Serve(lis); err != nil {
+	fmt.Printf("Servidor de streaming gRPC escuchando en :%s...\n", puerto)
+	if err := servidorGRPC.Serve(escucha); err != nil {
 		panic(err)
 	}
 }

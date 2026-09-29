@@ -1,48 +1,57 @@
+/**
+ * @file cliente.go
+ * @brief Punto de entrada del cliente: consulta metadatos por REST y reproduce audios por gRPC.
+ */
 package main
 
 import (
-	"bufio"
-	"context"
 	"fmt"
 	"os"
+	"os/user"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	"cliente.local/grpc-cliente/vistas"
-	pb "servidor.local/grpc-servidor/serviciosAudio"
+	capacontroladores "cliente.local/cliente/capaControladores"
+	"cliente.local/cliente/capaFachadaServices/fachada"
+	"cliente.local/cliente/configuracion"
+	"cliente.local/cliente/vistas"
+	pb "streaming.local/servidor-streaming/serviciosAudio"
 )
 
-// direccionServidor es la direccion del servidor de streaming gRPC.
-const direccionServidor = "localhost:50051"
-
+/**
+ * @brief Crea la conexión gRPC, construye las capas del cliente y muestra el menú principal.
+ */
 func main() {
-	client, conn := conectarServidorStreaming(direccionServidor)
-	defer conn.Close()
-
-	ejecutarAplicacion(client)
-}
-
-// conectarServidorStreaming establece la conexion gRPC con el servidor de streaming
-// y devuelve el cliente listo para invocar el procedimiento remoto AudioStream.
-func conectarServidorStreaming(direccion string) (pb.AudioServiceClient, *grpc.ClientConn) {
-	conn, err := grpc.NewClient(direccion, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conexion, err := grpc.NewClient(configuracion.ObtenerDireccionStreaming(),
+		grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
-		fmt.Printf("No fue posible conectar con el servidor de streaming (%s): %v\n", direccion, err)
+		fmt.Println("No fue posible crear la conexión con el servidor de streaming:", err)
 		os.Exit(1)
 	}
+	defer conexion.Close()
 
-	client := pb.NewAudioServiceClient(conn)
-	return client, conn
+	fachadaMetadatos := fachada.NuevaFachadaMetadatos(configuracion.ObtenerURLMetadatos())
+	fachadaStreaming := fachada.NuevaFachadaStreaming(pb.NewAudioServiceClient(conexion), obtenerUsuario())
+
+	controladorAudios := capacontroladores.NuevoControladorAudios(fachadaMetadatos)
+	controladorReproduccion := capacontroladores.NuevoControladorReproduccion(fachadaStreaming)
+
+	vistas.NuevoNavegadorVistas(controladorAudios, controladorReproduccion).MostrarMenuPrincipal()
 }
 
-// ejecutarAplicacion mantiene el ciclo del menu principal hasta que el usuario decide salir.
-func ejecutarAplicacion(client pb.AudioServiceClient) {
-	readerInput := bufio.NewReader(os.Stdin)
-	ctx := context.Background()
-
-	continuar := true
-	for continuar {
-		continuar = vistas.MostrarMenuPrincipal(client, ctx, readerInput)
+/**
+ * @brief Identifica al usuario como usuario\@equipo para las estadísticas.
+ * @return Identificación del usuario.
+ */
+func obtenerUsuario() string {
+	nombreUsuario := "anonimo"
+	if usuarioActual, err := user.Current(); err == nil {
+		nombreUsuario = usuarioActual.Username
 	}
+	equipo, err := os.Hostname()
+	if err != nil {
+		return nombreUsuario
+	}
+	return nombreUsuario + "@" + equipo
 }
