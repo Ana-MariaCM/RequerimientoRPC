@@ -3,7 +3,8 @@
  * @brief Punto de entrada del servidor de audios (servicios REST para el administrador).
  *
  * Servicios publicados:
- *  - POST /audios/almacenamiento   Almacena un nuevo audio mp3 (multipart/form-data).
+ *  - POST /audios/almacenamiento   Almacena un nuevo audio mp3 (multipart/form-data) y
+ *                                  registra sus metadatos en el servidor de metadatos.
  *  - GET  /audios                  Lista los audios almacenados.
  */
 package main

@@ -8,7 +8,7 @@ package dtos
  * @brief Datos del audio a almacenar (campos del formulario multipart).
  */
 type AudioAlmacenarDTOInput struct {
-	Titulo        string `json:"titulo"`        ///< Título del audio.
-	Tipo          string `json:"tipo"`          ///< Tipo de audio (Música, Podcasts, Audiolibros, Ruido Blanco).
-	NombreArchivo string `json:"nombreArchivo"` ///< Nombre con el que se guardará el mp3.
+	IdTipo    int               `json:"idTipo"`    ///< Identificador del tipo de audio.
+	Titulo    string            `json:"titulo"`    ///< Título del audio que verá el cliente.
+	Metadatos map[string]string `json:"metadatos"` ///< Metadatos propios del tipo de audio (clave -> valor).
 }

@@ -6,6 +6,8 @@
  *  - GET /tipos                    Lista los tipos de audio.
  *  - GET /tipos/{idTipo}/audios    Lista los audios de un tipo.
  *  - GET /audios/{idAudio}         Consulta los metadatos de un audio.
+ *  - POST /audios                  Registra los metadatos de un audio nuevo
+ *                                  (lo invoca el servidor de audios).
  */
 package main
 
@@ -26,6 +28,7 @@ func main() {
 	http.HandleFunc("GET /tipos", ctrl.ListarTiposAudio)
 	http.HandleFunc("GET /tipos/{idTipo}/audios", ctrl.ListarAudiosPorTipo)
 	http.HandleFunc("GET /audios/{idAudio}", ctrl.ConsultarDetalleAudio)
+	http.HandleFunc("POST /audios", ctrl.RegistrarAudio)
 
 	puerto := configuracion.ObtenerPuerto()
 	fmt.Printf("Servidor de metadatos de audios escuchando en el puerto %s...\n", puerto)

@@ -41,9 +41,6 @@ func (thisC *ControladorAdministrador) AlmacenarAudio(audio dtos.AudioAlmacenarD
 		return dtos.AudioAlmacenadoDTO{}, err
 	}
 	audio.RutaLocal = rutaLocal
-	if audio.NombreArchivo == "" {
-		audio.NombreArchivo = filepath.Base(audio.RutaLocal)
-	}
 
 	return thisC.fachada.AlmacenarAudio(audio)
 }

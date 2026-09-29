@@ -6,15 +6,11 @@ package vistas
 
 import (
 	"fmt"
-	"path/filepath"
 
 	capacontroladores "administrador/capaControladores"
 	dtos "administrador/capaFachadaServices/DTOs"
 	"administrador/utilidades"
 )
-
-/** @brief Tipos de audio que el administrador puede seleccionar. */
-var tiposAudio = []string{"Música", "Podcasts", "Audiolibros", "Ruido Blanco"}
 
 /**
  * @brief Muestra el menú principal del administrador hasta que elija salir.
@@ -42,7 +38,11 @@ func MostrarMenuPrincipal(controlador *capacontroladores.ControladorAdministrado
 }
 
 /**
- * @brief Opción 1: solicita los datos de un audio y lo envía al servidor de audios.
+ * @brief Opción 1: solicita el mp3, el tipo y los metadatos de un audio y lo envía al servidor de audios.
+ *
+ * Los metadatos (título, artista, autor, etc.) los digita el administrador. El
+ * servidor de audios guarda el mp3 y registra esos metadatos en el servidor de
+ * metadatos, por lo que el audio aparece en el cliente de inmediato.
  * @param controlador Controlador del administrador.
  */
 func opcionAlmacenarAudio(controlador *capacontroladores.ControladorAdministrador) {
@@ -57,19 +57,43 @@ func opcionAlmacenarAudio(controlador *capacontroladores.ControladorAdministrado
 
 	fmt.Println("Tipo de audio:")
 	for indice, tipo := range tiposAudio {
-		fmt.Printf("  %d. %s\n", indice+1, tipo)
+		fmt.Printf("  %d. %s\n", indice+1, tipo.Nombre)
 	}
-	audio.Tipo = tiposAudio[utilidades.LeerOpcion("Seleccione el tipo: ", 1, len(tiposAudio))-1]
-	audio.Titulo = utilidades.LeerTexto("Título del audio: ")
-	audio.NombreArchivo = utilidades.LeerTexto(fmt.Sprintf("Nombre en el servidor (Enter = %s): ", filepath.Base(audio.RutaLocal)))
+	tipo := tiposAudio[utilidades.LeerOpcion("Seleccione el tipo: ", 1, len(tiposAudio))-1]
+	audio.IdTipo = tipo.Id
 
+	fmt.Printf("\n--- Metadatos de %s ---\n", tipo.Nombre)
+	audio.Titulo = utilidades.LeerTextoObligatorio("  " + tipo.EtiquetaTitulo + ": ")
+	audio.Metadatos = leerMetadatos(tipo)
+
+	fmt.Println("\nEnviando audio al servidor de audios...")
 	respuesta, err := controlador.AlmacenarAudio(audio)
 	if err != nil {
 		fmt.Println("No se pudo almacenar el audio:", err)
 		return
 	}
-	fmt.Printf("%s: %s (%s)\n", respuesta.Mensaje, respuesta.Archivo.NombreArchivo,
-		utilidades.FormatearTamanio(respuesta.Archivo.TamanioBytes))
+	fmt.Println(respuesta.Mensaje + ".")
+	fmt.Printf("  Id: %d | Tipo: %s | Título: %s\n", respuesta.IdAudio, respuesta.Tipo, respuesta.Titulo)
+	fmt.Printf("  Archivo: %s (%s)\n", respuesta.Archivo.NombreArchivo, utilidades.FormatearTamanio(respuesta.Archivo.TamanioBytes))
+	fmt.Println("  El audio ya está disponible para el cliente.")
+}
+
+/**
+ * @brief Solicita por consola los metadatos propios del tipo de audio (todos obligatorios).
+ * @param tipo Tipo de audio seleccionado.
+ * @return Metadatos ingresados (clave -> valor).
+ */
+func leerMetadatos(tipo TipoAudio) map[string]string {
+	metadatos := map[string]string{}
+	for _, campo := range tipo.Campos {
+		mensaje := "  " + campo.Etiqueta + ": "
+		if campo.Numerico {
+			metadatos[campo.Clave] = utilidades.LeerNumeroObligatorio(mensaje)
+		} else {
+			metadatos[campo.Clave] = utilidades.LeerTextoObligatorio(mensaje)
+		}
+	}
+	return metadatos
 }
 
 /**

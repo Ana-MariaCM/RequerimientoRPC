@@ -13,6 +13,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strconv"
 	"time"
 
 	dtos "administrador/capaFachadaServices/DTOs"
@@ -36,8 +37,11 @@ func NuevaFachadaAudios(urlBase string) *FachadaAudios {
 }
 
 /**
- * @brief Envía un archivo mp3 al servidor de audios (POST /audios/almacenamiento).
- * @param audio Datos del audio y ruta local del archivo.
+ * @brief Envía un archivo mp3 y sus metadatos al servidor de audios (POST /audios/almacenamiento).
+ *
+ * El formulario multipart lleva el archivo, el tipo, el título y los
+ * metadatos serializados como un objeto JSON en el campo "metadatos".
+ * @param audio Datos del audio, metadatos y ruta local del archivo.
  * @return Respuesta del servidor o un error.
  */
 func (thisF *FachadaAudios) AlmacenarAudio(audio dtos.AudioAlmacenarDTO) (dtos.AudioAlmacenadoDTO, error) {
@@ -58,9 +62,13 @@ func (thisF *FachadaAudios) AlmacenarAudio(audio dtos.AudioAlmacenarDTO) (dtos.A
 	if _, err := io.Copy(campoArchivo, archivo); err != nil {
 		return respuesta, fmt.Errorf("no se pudo leer el archivo local: %v", err)
 	}
+	metadatosJSON, err := json.Marshal(audio.Metadatos)
+	if err != nil {
+		return respuesta, err
+	}
+	formulario.WriteField("idTipo", strconv.Itoa(audio.IdTipo))
 	formulario.WriteField("titulo", audio.Titulo)
-	formulario.WriteField("tipo", audio.Tipo)
-	formulario.WriteField("nombreArchivo", audio.NombreArchivo)
+	formulario.WriteField("metadatos", string(metadatosJSON))
 	formulario.Close()
 
 	peticion, err := http.NewRequest(http.MethodPost, thisF.urlBase+"/audios/almacenamiento", cuerpo)

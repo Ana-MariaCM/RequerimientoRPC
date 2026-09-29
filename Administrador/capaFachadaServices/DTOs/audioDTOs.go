@@ -8,10 +8,10 @@ package dtos
  * @brief Datos del audio que el administrador desea almacenar.
  */
 type AudioAlmacenarDTO struct {
-	RutaLocal     string ///< Ruta del archivo mp3 en el equipo del administrador.
-	Titulo        string ///< Título del audio.
-	Tipo          string ///< Tipo de audio.
-	NombreArchivo string ///< Nombre con el que se almacenará en el servidor.
+	RutaLocal string            ///< Ruta del archivo mp3 en el equipo del administrador.
+	IdTipo    int               ///< Identificador del tipo de audio.
+	Titulo    string            ///< Título del audio que verá el cliente.
+	Metadatos map[string]string ///< Metadatos propios del tipo de audio (clave -> valor).
 }
 
 /**
@@ -27,8 +27,9 @@ type ArchivoAudioDTO struct {
  */
 type AudioAlmacenadoDTO struct {
 	Mensaje string          `json:"mensaje"` ///< Mensaje de confirmación.
+	IdAudio int             `json:"idAudio"` ///< Identificador asignado por el servidor de metadatos.
 	Titulo  string          `json:"titulo"`  ///< Título del audio almacenado.
-	Tipo    string          `json:"tipo"`    ///< Tipo del audio almacenado.
+	Tipo    string          `json:"tipo"`    ///< Nombre del tipo de audio.
 	Archivo ArchivoAudioDTO `json:"archivo"` ///< Datos del archivo guardado.
 }
 
