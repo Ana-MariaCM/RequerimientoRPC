@@ -68,6 +68,11 @@ func cargarMusica() []modelos.Audio {
 			ArtistaPrincipal: "Big Boy", Album: "Mis Ojos Lloran Por Ti", GeneroMusical: "Reggaeton",
 			SelloDiscografico: "Big Boy", AnioLanzamiento: 2003, Duracion: "4:55",
 		},
+		modelos.Musica{
+			AudioBase:        modelos.AudioBase{Id: 3, IdTipo: IdTipoMusica, Titulo: "A dónde vamos a parar", NombreArchivo: "Marco_Antonio_Solís_A_dónde_vamos_a_parar.mp3"},
+			ArtistaPrincipal: "Marco Antonio Solís", Album: "Marco Antonio Disk", GeneroMusical: "Balada",
+			SelloDiscografico: "Marco Antonio Solís", AnioLanzamiento: 1999, Duracion: "03:46",
+		},
 	}
 }
 
@@ -78,13 +83,13 @@ func cargarMusica() []modelos.Audio {
 func cargarPodcasts() []modelos.Audio {
 	return []modelos.Audio{
 		modelos.Podcast{
-			AudioBase:     modelos.AudioBase{Id: 3, IdTipo: IdTipoPodcasts, Titulo: "Podcast Educativo, Tabaquismo", NombreArchivo: "Podcast_Educativo_Tabaquismo.mp3"},
+			AudioBase:     modelos.AudioBase{Id: 4, IdTipo: IdTipoPodcasts, Titulo: "Podcast Educativo, Tabaquismo", NombreArchivo: "Podcast_Educativo_Tabaquismo.mp3"},
 			NombrePodcast: "Podcast educativo sobre el tabaquismo", Anfitrion: "José José", Temporada: 1, Episodio: 1,
 			NotasDelShow:           "Por qué el consumo de tabaco es perjudicicial para la salud de todos.",
 			ClasificacionContenido: "Para toda la familia", Duracion: "01:15",
 		},
 		modelos.Podcast{
-			AudioBase:     modelos.AudioBase{Id: 4, IdTipo: IdTipoPodcasts, Titulo: "Trastornos del Aprendizaje", NombreArchivo: "Podcast_Trastornos_Del_Aprendizaje.mp3"},
+			AudioBase:     modelos.AudioBase{Id: 5, IdTipo: IdTipoPodcasts, Titulo: "Trastornos del Aprendizaje", NombreArchivo: "Podcast_Trastornos_Del_Aprendizaje.mp3"},
 			NombrePodcast: "Trastornos del Aprendizaje", Anfitrion: "Laura Muñoz", Temporada: 1, Episodio: 2,
 			NotasDelShow:           "Identificar los diferentes trastornos del aprendizaje que nos pueden afectar a todos.",
 			ClasificacionContenido: "Para toda la familia", Duracion: "03:00",
@@ -99,12 +104,12 @@ func cargarPodcasts() []modelos.Audio {
 func cargarAudiolibros() []modelos.Audio {
 	return []modelos.Audio{
 		modelos.Audiolibro{
-			AudioBase: modelos.AudioBase{Id: 5, IdTipo: IdTipoAudiolibros, Titulo: "El silencio de las sirenas", NombreArchivo: "Audiolibro_El_silencio_de_las_sirenas__Franz_Kafka.mp3"},
+			AudioBase: modelos.AudioBase{Id: 6, IdTipo: IdTipoAudiolibros, Titulo: "El silencio de las sirenas", NombreArchivo: "Audiolibro_El_silencio_de_las_sirenas__Franz_Kafka.mp3"},
 			Autor:     "Franz Kafka", Narrador: "Andrés Salazar", Editorial: "Salamandra", ISBN: "978-84-7888-445-2",
 			Capitulo: 1, TotalCapitulos: 2, Duracion: "04:17", Genero: "Ficción",
 		},
 		modelos.Audiolibro{
-			AudioBase: modelos.AudioBase{Id: 6, IdTipo: IdTipoAudiolibros, Titulo: "Beatriz, una palabra enorme", NombreArchivo: "Audiolibro_Beatriz_una_palabra_enorme__Mario_Benedetti.mp3"},
+			AudioBase: modelos.AudioBase{Id: 7, IdTipo: IdTipoAudiolibros, Titulo: "Beatriz, una palabra enorme", NombreArchivo: "Audiolibro_Beatriz_una_palabra_enorme__Mario_Benedetti.mp3"},
 			Autor:     "Mario Benedetti", Narrador: "Ana María Castro", Editorial: "Penguin Random House Grupo Editorial", ISBN: "978-0-307-47472-8",
 			Capitulo: 1, TotalCapitulos: 3, Duracion: "09:00", Genero: "Historia",
 		},
@@ -118,12 +123,12 @@ func cargarAudiolibros() []modelos.Audio {
 func cargarRuidoBlanco() []modelos.Audio {
 	return []modelos.Audio{
 		modelos.RuidoBlanco{
-			AudioBase:  modelos.AudioBase{Id: 7, IdTipo: IdTipoRuidoBlanco, Titulo: "Ventilador para concentrarse", NombreArchivo: "ruido_ventilador.mp3"},
+			AudioBase:  modelos.AudioBase{Id: 8, IdTipo: IdTipoRuidoBlanco, Titulo: "Ventilador para concentrarse", NombreArchivo: "ruido_ventilador.mp3"},
 			TipoSonido: "Ruido Blanco", FuenteAudio: "Ventilador", UsoSugerido: "Concentración",
 			ProveedorContenido: "Estudio Enfoque", DuracionBucle: "00:20", FrecuenciaDominante: "Agudos",
 		},
 		modelos.RuidoBlanco{
-			AudioBase:  modelos.AudioBase{Id: 8, IdTipo: IdTipoRuidoBlanco, Titulo: "Olas en la costa", NombreArchivo: "ruido_olas_costa.mp3"},
+			AudioBase:  modelos.AudioBase{Id: 9, IdTipo: IdTipoRuidoBlanco, Titulo: "Olas en la costa", NombreArchivo: "ruido_olas_costa.mp3"},
 			TipoSonido: "Ruido Rosa", FuenteAudio: "Mar", UsoSugerido: "Meditación",
 			ProveedorContenido: "Sonidos del Cauca", DuracionBucle: "00:40", FrecuenciaDominante: "Graves",
 		},
